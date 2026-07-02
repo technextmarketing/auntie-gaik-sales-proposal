@@ -80,14 +80,13 @@ section{padding:108px 0}
 }
 /* title hover movement */
 .hero h1,.section-h,.pos-orders h2,.tb-feature h2,.plan-head,.inv-head,.quotation-head{transition:transform .32s ease}
-.section-h:hover,.pos-orders h2:hover,.tb-feature h2:hover,.plan-head:hover,.inv-head:hover,.quotation-head:hover{transform:translateY(-3px)}
+.section-h:hover,.pos-orders h2:hover,.plan-head:hover,.inv-head:hover,.quotation-head:hover{transform:translateY(-3px)}
 /* interactive media frames */
 .intro-frame img,.plan-showcase img,.inv-showcase img,.quotation-video,.pos-main,.tb-plan{transition:transform .38s cubic-bezier(.2,.7,.2,1),box-shadow .38s ease}
 .intro-frame:hover img{transform:scale(1.025)}
 .plan-showcase:hover img,.inv-showcase:hover img{transform:translateY(-6px) scale(1.01)}
 .quotation-showcase:hover .quotation-video{transform:translateY(-5px);box-shadow:0 40px 80px -28px rgba(31,20,30,.45)}
 .pos-showcase:hover .pos-main{transform:translateY(-5px)}
-.tb-showcase:hover .tb-plan{transform:translateY(-5px)}
 /* interactive feature checklist */
 .check-item{transition:transform .25s ease,color .25s ease}
 .check-item:hover{transform:translateX(6px);color:var(--purple)}
