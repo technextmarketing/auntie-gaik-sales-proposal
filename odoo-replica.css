@@ -289,6 +289,12 @@ section{padding:108px 0}
 .why-card h3{font-size:1.55rem;margin-bottom:8px}
 .why-card p{font-size:.97rem}
 
+/* Ending remarks / closing section */
+.closing{background:var(--bg-alt)}
+.closing-inner{max-width:820px}
+.closing-text{font-size:1.15rem;color:var(--body);max-width:44em;margin:0 auto 18px}
+.closing-sign{font-family:'Caveat',cursive;font-size:1.9rem;font-weight:700;color:var(--purple);margin-top:14px}
+
 .why-feature{display:grid;grid-template-columns:1.05fr 1fr;gap:44px;align-items:center;margin-top:24px;padding:48px 52px;background:var(--purple-light);border-radius:var(--radius-lg)}
 .why-feature-media img{width:100%;max-width:540px;margin:0 auto}
 .why-feature-copy .eyebrow{margin-bottom:14px}

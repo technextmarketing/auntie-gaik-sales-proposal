@@ -65,7 +65,7 @@ if (posVids.length && 'IntersectionObserver' in window) {
     '.hero h1', '.hero .lede', '.hero-portrait',
     '.eyebrow', '.section-h', '.section-sub',
     '.pos-orders h2', '.tb-feature h2', '.plan-head', '.inv-head', '.quotation-head',
-    '.app-tile', '.pos-card', '.check-item', '.intro-frame',
+    '.app-tile', '.pos-card', '.check-item', '.intro-frame', '.why-card', '.closing-text', '.closing-sign',
     '.pos-showcase', '.tb-showcase', '.inv-showcase', '.plan-showcase', '.quotation-showcase',
     '.final-cta h2', '.final-cta p', '.final-cta .hero-ctas'
   ].join(', ');
