@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Odoo for Auntie Gaik Lean's Old School Eatery — A TechNext Proposal</title>
+<meta name="description" content="A TechNext proposal: run Auntie Gaik Lean's Old School Eatery on Odoo — POS, kitchen display, reservations, inventory, purchasing, accounting and more, on one platform."/>
+<meta name="robots" content="noindex, nofollow"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+/* ============ Odoo design system replica ============ */
+:root{
+  --purple:#714B67;
+  --purple-dark:#57394F;
+  --teal:#017E84;
+  --ink:#1F1F3D;
+  --body:#54546D;
+  --muted:#8888A0;
+  --line:#E8E8F0;
+  --bg-alt:#F9F9FB;
+  --marker:#FFD54F;
+  --radius:12px;
+  --shadow-card:0 24px 60px rgba(31,31,61,.10);
+  --maxw:1160px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--body);background:#fff;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--teal);text-decoration:none}
+h1,h2,h3,h4{color:var(--ink);font-weight:800;line-height:1.15;text-wrap:balance}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+section{padding:96px 0}
+.eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:18px}
+.section-h{font-size:clamp(1.9rem,3.6vw,2.7rem);margin-bottom:16px}
+.section-sub{font-size:1.15rem;max-width:44em;margin:0 auto}
+.center{text-align:center}
+
+/* marker-pen highlight, Odoo style */
+.hl{background-image:linear-gradient(120deg,rgba(255,213,79,.95) 0%,rgba(255,224,110,.75) 100%);background-repeat:no-repeat;background-size:100% .42em;background-position:0 86%;padding:0 .08em}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:15.5px;border-radius:8px;padding:13px 26px;border:1px solid transparent;cursor:pointer;transition:background .18s,color .18s,border-color .18s,transform .18s}
+.btn-primary{background:var(--purple);color:#fff}
+.btn-primary:hover{background:var(--purple-dark);transform:translateY(-1px)}
+.btn-ghost{background:#fff;color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--purple);color:var(--purple)}
+.btn-note{font-size:13px;color:var(--muted);margin-top:12px}
+
+/* ============ Nav ============ */
+nav{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:box-shadow .2s}
+nav.scrolled{box-shadow:0 1px 0 var(--line),0 8px 28px rgba(31,31,61,.06)}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{display:flex;align-items:baseline;gap:10px;color:var(--ink)}
+.brand b{font-size:21px;font-weight:800;letter-spacing:-.02em;color:var(--purple)}
+.brand span{font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.nav-links{display:flex;gap:30px}
+.nav-links a{color:var(--body);font-size:15px;font-weight:500}
+.nav-links a:hover{color:var(--purple)}
+.nav-cta{padding:10px 20px;font-size:14.5px}
+@media(max-width:900px){.nav-links{display:none}.brand span{display:none}}
+
+/* ============ Hero ============ */
+.hero{padding:172px 0 80px;text-align:center}
+.hero .prepared{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:22px}
+.hero .prepared b{color:var(--teal)}
+.hero h1{font-size:clamp(2.5rem,5.6vw,4.1rem);letter-spacing:-.025em;max-width:15em;margin:0 auto 26px}
+.hero p.lede{font-size:1.25rem;max-width:38em;margin:0 auto 36px}
+.hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* video card */
+.video-wrap{max-width:940px;margin:70px auto 0;padding:0 24px}
+.video-card{position:relative;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-card);border:1px solid var(--line);aspect-ratio:16/9;background:#000}
+.video-card iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-caption{font-size:13px;color:var(--muted);margin-top:14px;text-align:center}
+
+/* ============ Imagine band ============ */
+.imagine{background:var(--bg-alt);text-align:center}
+.imagine h2{font-size:clamp(1.7rem,3.4vw,2.5rem);max-width:22em;margin:0 auto 20px;font-weight:800}
+.imagine p{max-width:42em;margin:0 auto}
+
+/* ============ App grid ============ */
+.apps-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:54px}
+@media(max-width:900px){.apps-grid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:560px){.apps-grid{grid-template-columns:repeat(3,1fr)}}
+.app-tile{display:flex;flex-direction:column;align-items:center;gap:12px;padding:24px 10px 20px;border-radius:var(--radius);border:1px solid transparent;transition:border-color .18s,box-shadow .18s,transform .18s}
+.app-tile:hover{border-color:var(--line);box-shadow:0 12px 30px rgba(31,31,61,.08);transform:translateY(-3px)}
+.app-tile img{width:58px;height:58px;border-radius:13px}
+.app-tile span{font-size:13.5px;font-weight:600;color:var(--ink);text-align:center;line-height:1.3}
+.apps-note{text-align:center;margin-top:36px;font-size:15px;color:var(--muted)}
+
+/* ============ Feature rows ============ */
+.feature{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.feature.flip .f-media{order:2}
+@media(max-width:900px){.feature{grid-template-columns:1fr;gap:36px}.feature.flip .f-media{order:0}}
+.f-copy .kicker{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--purple);margin-bottom:14px;display:block}
+.f-copy h2{font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:18px}
+.f-copy h3{font-size:1.02rem;font-weight:700;margin:22px 0 6px}
+.f-copy p{font-size:1.02rem}
+.f-media .shot{border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-card);background:#fff}
+.f-media .shot img{width:100%}
+
+/* mini carousel */
+.carousel{position:relative}
+.carousel .slide{display:none}
+.carousel .slide.active{display:block}
+.car-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:18px}
+.car-btn{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:border-color .15s,color .15s}
+.car-btn:hover{border-color:var(--purple);color:var(--purple)}
+.car-dots{display:flex;gap:8px}
+.car-dots i{width:8px;height:8px;border-radius:50%;background:var(--line);transition:background .15s}
+.car-dots i.on{background:var(--purple)}
+
+/* speech bubble persona callout */
+.bubble{display:flex;align-items:flex-start;gap:14px;margin-top:30px}
+.bubble .avatar{flex:none;width:44px;height:44px;border-radius:50%;background:var(--purple);color:#fff;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center}
+.bubble .avatar.teal{background:var(--teal)}
+.bubble .say{position:relative;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 18px;font-size:15px;font-style:italic;color:var(--ink);box-shadow:0 10px 26px rgba(31,31,61,.07)}
+.bubble .say::before{content:"";position:absolute;left:-7px;top:16px;width:12px;height:12px;background:#fff;border-left:1px solid var(--line);border-bottom:1px solid var(--line);transform:rotate(45deg)}
+.bubble .say b{display:block;font-style:normal;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+
+.more-teaser{text-align:center;font-size:1.25rem;font-weight:700;color:var(--ink);padding:10px 0 0}
+
+/* ============ Checklist ============ */
+.check-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px 40px;margin-top:50px}
+@media(max-width:900px){.check-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.check-grid{grid-template-columns:1fr}}
+.check-item{display:flex;gap:12px;align-items:flex-start;padding:10px 0}
+.check-item svg{flex:none;margin-top:4px}
+.check-item b{display:block;color:var(--ink);font-size:15.5px;font-weight:700}
+.check-item span{font-size:14px;color:var(--body)}
+
+/* ============ Client band ============ */
+.client{background:var(--bg-alt)}
+.client-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+@media(max-width:900px){.client-grid{grid-template-columns:1fr}}
+.client-photos{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.client-photos img{border-radius:12px;aspect-ratio:4/3.4;object-fit:cover;box-shadow:0 14px 34px rgba(31,31,61,.10)}
+.client-photos img:first-child{grid-column:1/-1;aspect-ratio:16/8.5}
+.now-next{margin-top:28px;border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:14.5px;background:#fff}
+.now-next .row{display:grid;grid-template-columns:1fr 1fr}
+.now-next .row+.row{border-top:1px solid var(--line)}
+.now-next .cell{padding:12px 16px}
+.now-next .cell:first-child{border-right:1px solid var(--line);color:var(--muted)}
+.now-next .cell:last-child{color:var(--ink);font-weight:600}
+.now-next .head .cell{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--bg-alt)}
+.now-next .head .cell:first-child{color:var(--muted)}
+.now-next .head .cell:last-child{color:var(--purple)}
+
+/* ============ Pillars ============ */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:54px}
+@media(max-width:900px){.pillars{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.pillars{grid-template-columns:1fr}}
+.pillar{border:1px solid var(--line);border-radius:var(--radius);padding:30px 26px;transition:box-shadow .18s,transform .18s}
+.pillar:hover{box-shadow:var(--shadow-card);transform:translateY(-3px)}
+.pillar .ico{width:46px;height:46px;border-radius:11px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;background:rgba(113,75,103,.09);color:var(--purple)}
+.pillar h3{font-size:1.06rem;margin-bottom:8px}
+.pillar p{font-size:14.5px}
+
+/* ============ Roadmap ============ */
+.roadmap{background:var(--bg-alt)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:54px;counter-reset:step}
+@media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.steps{grid-template-columns:1fr}}
+.step{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px;position:relative}
+.step .num{counter-increment:step;width:34px;height:34px;border-radius:50%;background:var(--purple);color:#fff;font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.step .num::before{content:counter(step)}
+.step .when{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:6px}
+.step h3{font-size:1.02rem;margin-bottom:8px}
+.step p{font-size:14px}
+
+/* ============ Stats ============ */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;text-align:center}
+@media(max-width:700px){.stats{grid-template-columns:1fr}}
+.stat b{display:block;font-size:clamp(2.4rem,5vw,3.4rem);font-weight:800;color:var(--purple);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.stat span{font-size:15px;color:var(--body)}
+
+/* ============ Investment ============ */
+.invest-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:54px}
+@media(max-width:900px){.invest-grid{grid-template-columns:1fr}}
+.invest-card{border:1px solid var(--line);border-radius:var(--radius);padding:34px 30px}
+.invest-card.featured{border-color:var(--purple);box-shadow:var(--shadow-card)}
+.invest-card .tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:999px;margin-bottom:18px}
+.invest-card .tag.odoo{background:rgba(1,126,132,.09);color:var(--teal)}
+.invest-card .tag.tn{background:rgba(113,75,103,.09);color:var(--purple)}
+.invest-card h3{font-size:1.25rem;margin-bottom:10px}
+.invest-card>p{font-size:15px;margin-bottom:18px}
+.invest-card ul{list-style:none}
+.invest-card li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;padding:7px 0}
+.invest-card li svg{flex:none;margin-top:4px}
+
+/* ============ Final CTA ============ */
+.final{text-align:center;padding:120px 0}
+.final h2{font-size:clamp(2rem,4.4vw,3.1rem);margin-bottom:18px}
+.final p{max-width:36em;margin:0 auto 38px;font-size:1.15rem}
+.doodle{display:block;margin:0 auto 26px;color:var(--marker)}
+
+/* ============ Footer ============ */
+footer{border-top:1px solid var(--line);padding:64px 0 40px;background:var(--bg-alt);font-size:14px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+@media(max-width:900px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.foot-grid{grid-template-columns:1fr}}
+.foot-grid h4{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.foot-grid ul{list-style:none}
+.foot-grid li{padding:4px 0}
+.foot-grid a{color:var(--body)}
+.foot-grid a:hover{color:var(--purple)}
+.foot-brand b{font-size:20px;font-weight:800;color:var(--purple)}
+.foot-brand p{margin-top:12px;max-width:26em;font-size:13.5px;color:var(--muted)}
+.foot-legal{margin-top:48px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--muted)}
+
+/* ============ Reveal animation ============ */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .btn,.app-tile,.pillar{transition:none}
+}
+a:focus-visible,button:focus-visible{outline:3px solid rgba(113,75,103,.45);outline-offset:2px;border-radius:6px}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand"><b>TechNext</b><span>Certified Odoo Partner</span></a>
+    <div class="nav-links">
+      <a href="#solution">The Solution</a>
+      <a href="#apps">Apps</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#investment">Investment</a>
+    </div>
+    <a href="#consult" class="btn btn-primary nav-cta">Book a discovery session</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="container">
+    <p class="prepared">A proposal prepared for <b>Auntie Gaik Lean's Old School Eatery</b> · George Town, Penang</p>
+    <h1>The ultimate software for your <span class="hl">fine dining restaurant</span></h1>
+    <p class="lede">Odoo brings reservations, orders, the kitchen, inventory and accounting together on one platform — implemented, configured and supported by TechNext.</p>
+    <div class="hero-ctas">
+      <a href="#consult" class="btn btn-primary">Schedule a consultation →</a>
+      <a href="#solution" class="btn btn-ghost">Explore the solution</a>
+    </div>
+    <p class="btn-note">No obligation · Prepared by TechNext, Certified Odoo Partner</p>
+  </div>
+  <div class="video-wrap reveal">
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/pctpdVurqRc?start=56&rel=0&modestbranding=1" title="Odoo POS: Restaurant management made easy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <p class="video-caption">Odoo POS in a working restaurant — from table plan to kitchen to payment.</p>
+  </div>
+</header>
+
+<!-- IMAGINE BAND -->
+<section class="imagine">
+  <div class="container reveal">
+    <h2>Imagine <span class="hl">every table, every order, every ringgit</span> — managed on one platform.</h2>
+    <p>Today, the dining room, the kitchen, the storeroom and the books each live in their own world. Odoo connects them, so a dish ordered at table five updates the kitchen display, depletes the stock ledger and posts to accounting — automatically.</p>
+  </div>
+</section>
+
+<!-- APPS GRID -->
+<section id="apps">
+  <div class="container center reveal">
+    <span class="eyebrow">The Platform</span>
+    <h2 class="section-h">One need, one app. Expand as you grow.</h2>
+    <p class="section-sub">Every app below is included in a single Odoo subscription — no per-module licensing, no integration projects between vendors.</p>
+    <div class="apps-grid">
+      <a class="app-tile" href="#f-pos"><img src="https://download.odoocdn.com/icons/point_of_sale/static/description/icon.png" alt="Point of Sale" loading="lazy"/><span>Point of Sale</span></a>
+      <a class="app-tile" href="#f-pos"><img src="https://download.odoocdn.com/icons/pos_restaurant/static/description/icon.png" alt="Restaurant &amp; Kitchen Display" loading="lazy"/><span>Restaurant &amp; KDS</span></a>
+      <a class="app-tile" href="#f-booking"><img src="https://download.odoocdn.com/icons/appointment/static/description/icon.png" alt="Appointments" loading="lazy"/><span>Appointments</span></a>
+      <a class="app-tile" href="#f-stock"><img src="https://download.odoocdn.com/icons/stock/static/description/icon.png" alt="Inventory" loading="lazy"/><span>Inventory</span></a>
+      <a class="app-tile" href="#f-stock"><img src="https://download.odoocdn.com/icons/purchase/static/description/icon.png" alt="Purchase" loading="lazy"/><span>Purchase</span></a>
+      <a class="app-tile" href="#features"><img src="https://download.odoocdn.com/icons/account/static/description/icon.png" alt="Accounting" loading="lazy"/><span>Accounting</span></a>
+      <a class="app-tile" href="#f-plan"><img src="https://download.odoocdn.com/icons/hr/static/description/icon.png" alt="Employees" loading="lazy"/><span>Employees</span></a>
+      <a class="app-tile" href="#f-plan"><img src="https://download.odoocdn.com/icons/planning/static/description/icon.png" alt="Planning" loading="lazy"/><span>Planning</span></a>
+      <a class="app-tile" href="#features"><img src="https://download.odoocdn.com/icons/crm/static/description/icon.png" alt="CRM" loading="lazy"/><span>CRM</span></a>
+      <a class="app-tile" href="#features"><img src="https://download.odoocdn.com/icons/mass_mailing/static/description/icon.png" alt="Email Marketing" loading="lazy"/><span>Email Marketing</span></a>
+      <a class="app-tile" href="#features"><img src="https://download.odoocdn.com/icons/website/static/description/icon.png" alt="Website" loading="lazy"/><span>Website</span></a>
+      <a class="app-tile" href="#features"><img src="https://download.odoocdn.com/icons/spreadsheet_dashboard/static/description/icon.png" alt="Dashboards" loading="lazy"/><span>Dashboards</span></a>
+    </div>
+    <p class="apps-note">…and 40+ more apps, whenever the restaurant is ready for them.</p>
+  </div>
+</section>
+
+<!-- FEATURE 1 — POS -->
+<section id="solution" style="padding-top:0">
+  <div class="container">
+    <div class="feature reveal" id="f-pos">
+      <div class="f-media">
+        <div class="carousel" data-carousel>
+          <div class="slide active shot"><img src="https://odoocdn.com/openerp_website/static/src/img/industries/fine-dining-restaurant/take-your-orders-with-precision-1.webp" alt="Odoo POS order screen" loading="lazy"/></div>
+          <div class="slide shot"><img src="https://odoocdn.com/openerp_website/static/src/img/industries/fine-dining-restaurant/take-your-orders-with-precision-2.webp" alt="Odoo POS table view" loading="lazy"/></div>
+          <div class="slide shot"><img src="https://odoocdn.com/openerp_website/static/src/img/industries/fine-dining-restaurant/take-your-orders-with-precision-3.webp" alt="Odoo kitchen display" loading="lazy"/></div>
+          <div class="car-nav">
+            <button class="car-btn" data-prev aria-label="Previous screenshot">←</button>
+            <div class="car-dots"><i class="on"></i><i></i><i></i></div>
+            <button class="car-btn" data-next aria-label="Next screenshot">→</button>
+          </div>
+        </div>
+      </div>
+      <div class="f-copy">
+        <span class="kicker">Point of Sale · Kitchen Display</span>
+        <h2>Take your orders with precision</h2>
+        <h3>Point of Sale and kitchen display, fully integrated</h3>
+        <p>Servers take orders on a tablet at the table. Each course fires to the kitchen display the moment it's confirmed — no paper dockets, no shouting through the pass, no missed modifiers on a busy Michelin-guide weekend.</p>
+        <h3>QR ordering when the queue is long</h3>
+        <p>Guests can scan a QR code to browse the menu and order from their table, easing pressure on the floor during peak tourist season.</p>
+        <div class="bubble">
+          <div class="avatar">FZ</div>
+          <div class="say">"Curry Kapitan for table five, less spicy — sent to the kitchen before I've left the table."<b>Server, front of house</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE 2 — BOOKING -->
+<section class="client" style="padding:96px 0" id="f-booking">
+  <div class="container">
+    <div class="feature flip reveal">
+      <div class="f-media">
+        <div class="shot"><img src="https://odoocdn.com/openerp_website/static/src/img/industries/fine-dining-restaurant/table-booking-made-simple.webp" alt="Odoo online table booking" loading="lazy"/></div>
+        <div class="shot" style="margin-top:18px"><img src="https://odoocdn.com/openerp_website/static/src/img/industries/fine-dining-restaurant/table-booking-made-simple-1.webp" alt="Odoo floor plan with reservations" loading="lazy"/></div>
+      </div>
+      <div class="f-copy">
+        <span class="kicker">Appointments · Floor Plan</span>
+        <h2>Table booking made simple</h2>
+        <h3>Online reservations, around the clock</h3>
+        <p>Diners plan a visit to Auntie Gaik Lean's weeks ahead — often from Singapore, Hong Kong or Europe. With Odoo Appointments they book online at any hour, and every reservation lands directly on your floor plan.</p>
+        <h3>Your dining room, drawn as it really is</h3>
+        <p>The floor plan mirrors the shophouse dining room table by table. Reserved tables are marked, walk-ins are seated around them, and no booking is ever taken twice.</p>
+        <div class="bubble">
+          <div class="avatar teal">GT</div>
+          <div class="say">"Booked from Singapore, three weeks ahead — confirmed in seconds, no phone call needed."<b>Guest, travelling for the table</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE 3 — STOCK -->
+<section id="f-stock">
+  <div class="container">
+    <div class="feature reveal">
+      <div class="f-media">
+        <div class="shot"><img src="https://odoocdn.com/openerp_website/static/src/img/industries/fine-dining-restaurant/never-ever-run-out-of-stock.webp" alt="Odoo inventory replenishment" loading="lazy"/></div>
+      </div>
+      <div class="f-copy">
+        <span class="kicker">Inventory · Purchase</span>
+        <h2>Never ever run out of stock</h2>
+        <h3>Automated and manual replenishment</h3>
+        <p>Every dish sold depletes its ingredients from stock. When fresh nutmeg, gula Melaka or belacan runs low, Odoo drafts the purchase order to your regular supplier — you approve it with one tap.</p>
+        <h3>Seasonal and market-day buying, handled</h3>
+        <p>Recurring tasks cover wet-market runs and seasonal produce, while trackable items reorder themselves. Costs flow straight into accounting, so food-cost percentage is always current.</p>
+        <div class="bubble">
+          <div class="avatar">CG</div>
+          <div class="say">"Fresh nutmeg and gula Melaka? Always on hand — the reorder went out before we noticed we were low."<b>Kitchen team</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE 4 — PLANNING -->
+<section class="client" style="padding:96px 0" id="f-plan">
+  <div class="container">
+    <div class="feature flip reveal">
+      <div class="f-media">
+        <div class="shot"><img src="https://odoocdn.com/openerp_website/static/src/img/industries/fine-dining-restaurant/plan-your-services-like-a-pro.webp" alt="Odoo shift planning" loading="lazy"/></div>
+      </div>
+      <div class="f-copy">
+        <span class="kicker">Planning · Employees</span>
+        <h2>Plan your services like a pro</h2>
+        <h3>Smart shift scheduling</h3>
+        <p>Schedule lunch and dinner services, publish shifts to the team's phones, and let staff swap within rules you set. Attendance, leave and payroll inputs live in the same system.</p>
+        <h3>One record per person, from hire to payslip</h3>
+        <p>Contracts, documents and attendance sit in Odoo Employees — no more folders of paper in the back office.</p>
+        <div class="bubble">
+          <div class="avatar teal">AG</div>
+          <div class="say">"Saturday's double service is staffed and published — everyone saw their shift on their phone."<b>Restaurant manager</b></div>
+        </div>
+      </div>
+    </div>
+    <p class="more-teaser reveal" style="margin-top:64px">But wait — <span class="hl">there's more.</span></p>
+  </div>
+</section>
+
+<!-- CHECKLIST -->
+<section id="features">
+  <div class="container center reveal">
+    <span class="eyebrow">Full Scope</span>
+    <h2 class="section-h">All the features done right.</h2>
+    <p class="section-sub">Everything in this proposal is standard Odoo — configured for Auntie Gaik Lean's, not custom-built and fragile.</p>
+    <div class="check-grid" style="text-align:left">
+      <div class="check-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#017E84" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><div><b>Restaurant POS</b><span>Fast, offline-capable, works on any tablet</span></div></div>
+      <div class="check-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#017E84" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><div><b>Table management</b><span>Custom floor plan of the shophouse dining room</span></div></div>
+      <div class="check-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#017E84" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><div><b>Kitchen display</b><span>Courses fire by station, timed and tracked</span></div></div>
+      <div class="check-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#017E84" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><div><b>QR ordering</b><span>Guests order and pay from the table</span></div></div>
+      <div class="check-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#017E84" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><div><b>Reservations</b><span>Online booking synced to the floor plan</span></div></div>
+      <div class="check-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#017E84" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><div><b>Inventory</b><span>Real-time stock, recipe-based depletion</span></div></div>
+      <div class="check-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#017E84" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><div><b>Purchasing</b><span>Supplier orders drafted automatically</span></div></div>
+      <div class="check-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#017E84" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><div><b>Accounting</b><span>Daily sales post automatically; SST-ready</span></div></div>
+      <div class="check-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#017E84" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><div><b>Employee management</b><span>Shifts, attendance, leave and documents</span></div></div>
+      <div class="check-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#017E84" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><div><b>CRM &amp; guest database</b><span>Know your regulars and your reviewers</span></div></div>
+      <div class="check-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#017E84" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><div><b>Loyalty programs</b><span>Reward the guests who keep coming back</span></div></div>
+      <div class="check-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#017E84" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><div><b>Reporting &amp; analytics</b><span>Covers per service, food cost, best sellers</span></div></div>
+    </div>
+    <p class="apps-note">A second location one day? Odoo runs multi-branch out of the box — same platform, another floor plan.</p>
+  </div>
+</section>
+
+<!-- CLIENT BAND -->
+<section class="client">
+  <div class="container">
+    <div class="client-grid reveal">
+      <div>
+        <span class="eyebrow">Why Now</span>
+        <h2 class="section-h">Built around Auntie Gaik Lean's — not the other way round.</h2>
+        <p>A Michelin-starred Peranakan kitchen on Bishop Street deserves back-of-house systems as disciplined as its cooking. Today, reservations arrive by phone, orders travel on paper, and stock lives in someone's head. Every one of those is a queue, an error, or an hour of the team's evening.</p>
+        <div class="now-next">
+          <div class="row head"><div class="cell">Today</div><div class="cell">With Odoo</div></div>
+          <div class="row"><div class="cell">Phone-call reservations during service</div><div class="cell">Online booking, synced to the floor plan</div></div>
+          <div class="row"><div class="cell">Paper dockets to the kitchen</div><div class="cell">Kitchen display, fired by course</div></div>
+          <div class="row"><div class="cell">Stock counted by memory</div><div class="cell">Live inventory with auto-reorder</div></div>
+          <div class="row"><div class="cell">Month-end spreadsheet accounting</div><div class="cell">Books that post themselves daily</div></div>
+        </div>
+      </div>
+      <div class="client-photos">
+        <img src="img/odoo/restaurant-exterior.jpg" alt="Auntie Gaik Lean's Old School Eatery, George Town" loading="lazy"/>
+        <img src="img/odoo/Curry Kapitan.jpg" alt="Curry Kapitan" loading="lazy"/>
+        <img src="img/odoo/chef-0088.jpg" alt="Chef Gaik Lean at work" loading="lazy"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY TECHNEXT -->
+<section>
+  <div class="container center reveal">
+    <span class="eyebrow">Your Implementation Partner</span>
+    <h2 class="section-h">Enterprise software, <span class="hl">done right.</span></h2>
+    <p class="section-sub">Odoo is the platform. TechNext is the team that makes it fit a working restaurant — and stays after go-live.</p>
+    <div class="pillars" style="text-align:left">
+      <div class="pillar"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.6 2A9.6 9.6 0 1112 2.4 9.6 9.6 0 0121.6 12z"/></svg></div><h3>Certified Odoo Partner</h3><p>Accredited by Odoo to implement, configure and support the platform — with direct access to Odoo's own support channels.</p></div>
+      <div class="pillar"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div><h3>ERP &amp; Digital Transformation</h3><p>We specialise in moving businesses from paper and spreadsheets to one connected system, without disrupting daily service.</p></div>
+      <div class="pillar"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 4a7 7 0 100 14 7 7 0 000-14zM21 21l-4.35-4.35"/></svg></div><h3>Business Process Consulting</h3><p>Before we configure anything, we map how the restaurant actually runs — service flow, kitchen stations, supplier habits.</p></div>
+      <div class="pillar"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10.3 4.3a1.7 1.7 0 013.4 0 1.7 1.7 0 002.6 1.5 1.7 1.7 0 011.7 3 1.7 1.7 0 000 3 1.7 1.7 0 01-1.7 3 1.7 1.7 0 00-2.6 1.5 1.7 1.7 0 01-3.4 0 1.7 1.7 0 00-2.6-1.5 1.7 1.7 0 01-1.7-3 1.7 1.7 0 000-3 1.7 1.7 0 011.7-3 1.7 1.7 0 002.6-1.5z"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Implementation, End to End</h3><p>Floor plan, menu, recipes, suppliers, opening balances — we set up everything and migrate your existing data.</p></div>
+      <div class="pillar"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.25c-2.4-2-6.2-2-8.5 0v12.5c2.3-2 6.1-2 8.5 0 2.4-2 6.2-2 8.5 0V6.25c-2.3-2-6.1-2-8.5 0zm0 0v12.5"/></svg></div><h3>Training &amp; Support</h3><p>Hands-on training for the floor, kitchen and office — then a support line that answers in your timezone, in your language.</p></div>
+      <div class="pillar"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></div><h3>Growth, When You're Ready</h3><p>Loyalty, marketing, a second branch — the platform is already there. We switch apps on as the business grows, never before.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="roadmap" id="roadmap">
+  <div class="container center reveal">
+    <span class="eyebrow">How We Get There</span>
+    <h2 class="section-h">From first meeting to first service — in eight weeks.</h2>
+    <p class="section-sub">A fixed, phased rollout designed around restaurant hours. The dining room never closes for IT.</p>
+    <div class="steps" style="text-align:left">
+      <div class="step"><div class="num"></div><span class="when">Weeks 1–2</span><h3>Discovery &amp; process mapping</h3><p>We shadow a full service, map how orders, stock and money move today, and agree the exact scope.</p></div>
+      <div class="step"><div class="num"></div><span class="when">Weeks 3–6</span><h3>Configuration &amp; migration</h3><p>Floor plan, menu and recipes built in Odoo; suppliers, guest lists and opening balances migrated.</p></div>
+      <div class="step"><div class="num"></div><span class="when">Weeks 7–8</span><h3>Training &amp; parallel run</h3><p>Floor, kitchen and office teams trained on real scenarios. Odoo runs alongside current systems until everyone is confident.</p></div>
+      <div class="step"><div class="num"></div><span class="when">Go-live</span><h3>First service &amp; ongoing support</h3><p>TechNext is on-site for go-live week, then on call — with reviews at 30 and 90 days.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section>
+  <div class="container reveal">
+    <div class="stats">
+      <div class="stat"><b data-count="28" data-suffix="M+">0</b><span>users run their business on Odoo worldwide</span></div>
+      <div class="stat"><b data-count="40" data-suffix="k+">0</b><span>apps in the Odoo ecosystem, ready when you are</span></div>
+      <div class="stat"><b data-count="1" data-suffix="">0</b><span>platform — and one partner responsible for it all</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- INVESTMENT -->
+<section class="client" id="investment">
+  <div class="container center reveal">
+    <span class="eyebrow">Investment</span>
+    <h2 class="section-h">Simple, efficient, yet <span class="hl">affordable.</span></h2>
+    <p class="section-sub">Two transparent components — Odoo's public per-user subscription, and TechNext's fixed implementation engagement. No hidden licences, no per-module fees.</p>
+    <div class="invest-grid" style="text-align:left">
+      <div class="invest-card">
+        <span class="tag odoo">Paid to Odoo</span>
+        <h3>Odoo subscription</h3>
+        <p>One plan covers every app in this proposal — POS, reservations, inventory, accounting and all the rest.</p>
+        <ul>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#017E84" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>All apps included, per-user pricing published openly by Odoo</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#017E84" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Hosted and backed up on Odoo's cloud — nothing to maintain</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#017E84" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Upgrades included; the platform improves every year</li>
+        </ul>
+      </div>
+      <div class="invest-card featured">
+        <span class="tag tn">Paid to TechNext · One-time</span>
+        <h3>Implementation by TechNext</h3>
+        <p>Fixed-scope engagement covering the full eight-week roadmap above, finalized after the discovery session.</p>
+        <ul>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#714B67" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Discovery, configuration, data migration and go-live support</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#714B67" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>On-site training for floor, kitchen and office teams</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#714B67" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Fixed price agreed before work begins — scoped at discovery</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final" id="consult">
+  <div class="container reveal">
+    <svg class="doodle" width="74" height="74" viewBox="0 0 74 74" fill="none" aria-hidden="true">
+      <path d="M37 8c16 0 29 13 29 29S53 66 37 66 8 53 8 37c0-10 5-19 13-24" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+      <path d="M21 5l1 9-9 2" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <h2>Unleash your growth potential.</h2>
+    <p>A 60-minute ERP discovery session at the restaurant — we walk the floor, map the flow, and show Odoo running your menu. No obligation, no slideware.</p>
+    <a href="mailto:hello@technext.asia?subject=ERP%20Discovery%20Session%20—%20Auntie%20Gaik%20Lean%27s%20Old%20School%20Eatery" class="btn btn-primary" style="font-size:17px;padding:16px 34px">Book your ERP discovery session →</a>
+    <p class="btn-note">On-site in George Town or online · hello@technext.asia</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <b>TechNext</b>
+        <p>Certified Odoo Partner · ERP &amp; digital transformation specialists. We implement, train and support — so the platform works as hard as the kitchen does.</p>
+      </div>
+      <div>
+        <h4>This proposal</h4>
+        <ul>
+          <li><a href="#solution">The solution</a></li>
+          <li><a href="#apps">Apps included</a></li>
+          <li><a href="#roadmap">Implementation roadmap</a></li>
+          <li><a href="#investment">Investment</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>TechNext services</h4>
+        <ul>
+          <li>Odoo implementation</li>
+          <li>Business process consulting</li>
+          <li>Training &amp; support</li>
+          <li>Digital transformation</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@technext.asia">hello@technext.asia</a></li>
+          <li><a href="index.html">Marketing showcase</a></li>
+          <li><a href="research.html">Market research</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-legal">
+      <span>Prepared by TechNext for Auntie Gaik Lean's Old School Eatery · 2026</span>
+      <span>Odoo is a trademark of Odoo S.A. Product screenshots © Odoo S.A., used for proposal illustration.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// nav shadow
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>10),{passive:true});
+
+// reveal on scroll
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// mini carousel
+document.querySelectorAll('[data-carousel]').forEach(car=>{
+  const slides=[...car.querySelectorAll('.slide')];
+  const dots=[...car.querySelectorAll('.car-dots i')];
+  let i=0,timer;
+  const show=n=>{
+    slides[i].classList.remove('active');dots[i].classList.remove('on');
+    i=(n+slides.length)%slides.length;
+    slides[i].classList.add('active');dots[i].classList.add('on');
+  };
+  const auto=()=>{clearInterval(timer);timer=setInterval(()=>show(i+1),5000)};
+  car.querySelector('[data-prev]').addEventListener('click',()=>{show(i-1);auto()});
+  car.querySelector('[data-next]').addEventListener('click',()=>{show(i+1);auto()});
+  if(!matchMedia('(prefers-reduced-motion: reduce)').matches)auto();
+});
+
+// stat counters
+const cio=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;cio.unobserve(e.target);
+  const el=e.target,end=+el.dataset.count,suf=el.dataset.suffix||'';
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){el.textContent=end+suf;return}
+  const t0=performance.now(),dur=1200;
+  const tick=t=>{const p=Math.min((t-t0)/dur,1);el.textContent=Math.round(end*(1-Math.pow(1-p,3)))+suf;if(p<1)requestAnimationFrame(tick)};
+  requestAnimationFrame(tick);
+}),{threshold:.6});
+document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+</script>
+</body>
+</html>

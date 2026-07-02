@@ -1,0 +1,25 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#714B67"/>
+      <stop offset="100%" stop-color="#3E2A38"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F4F2F6"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#g)"/>
+  <rect x="48" y="48" width="704" height="504" rx="18" fill="url(#screen)" stroke="#E8E8F0" stroke-width="2"/>
+  <rect x="48" y="48" width="704" height="56" rx="18" fill="#FFFFFF"/>
+  <rect x="48" y="86" width="704" height="18" fill="#FFFFFF"/>
+  <circle cx="80" cy="76" r="6" fill="#FF6B6B"/>
+  <circle cx="102" cy="76" r="6" fill="#FFD54F"/>
+  <circle cx="124" cy="76" r="6" fill="#5FBF77"/>
+  <text x="400" y="82" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#8888A0" text-anchor="middle" letter-spacing="2">AUNTIE GAIK LEAN · ODOO POS</text>
+  <text x="400" y="330" font-family="Arial, sans-serif" font-size="120" text-anchor="middle">🗺️</text>
+  <text x="400" y="440" font-family="Arial, sans-serif" font-size="30" font-weight="800" fill="#1F1F3D" text-anchor="middle">Floor Plan &amp; Table View</text>
+  <text x="400" y="474" font-family="Arial, sans-serif" font-size="16" fill="#8888A0" text-anchor="middle">Live table status at a glance</text>
+  <rect x="330" y="500" width="140" height="30" rx="15" fill="#F0EDF0"/>
+  <text x="400" y="520" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#714B67" text-anchor="middle" letter-spacing="1.5">PLACEHOLDER</text>
+</svg>
