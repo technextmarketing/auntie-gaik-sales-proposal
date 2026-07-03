@@ -289,6 +289,10 @@ section{padding:108px 0}
 .why-card h3{font-size:1.55rem;margin-bottom:8px}
 .why-card p{font-size:.97rem}
 
+/* Introduction video section */
+.intro-video-wrap{max-width:960px;margin:44px auto 0}
+.intro-video{display:block;width:100%;aspect-ratio:16/9;border-radius:16px;border:1px solid var(--line);box-shadow:0 30px 64px -26px rgba(31,20,30,.34);background:#0f0f1a}
+
 /* Ending remarks / closing section */
 .closing{background:var(--bg-alt)}
 .closing-inner{max-width:820px}
