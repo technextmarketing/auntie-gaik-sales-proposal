@@ -321,6 +321,38 @@ section{padding:108px 0}
 .hl-body{padding:20px 22px 24px}
 .hl-card h3{font-size:1.3rem;margin-bottom:6px}
 .hl-card p{font-size:.95rem}
+/* --- exact-copy building blocks (odoo.com module pages) --- */
+.xc-section{padding:84px 0}
+.xc-section.alt{background:var(--bg-alt)}
+.xc-img{display:block;width:100%;border-radius:14px}
+.xc-shot{max-width:1000px;margin:44px auto 0}
+.img-duo{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start;max-width:1000px;margin:44px auto 0}
+@media(max-width:800px){.img-duo{grid-template-columns:1fr}}
+.chip-row{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:38px}
+.chip{background:#fff;border:1px solid var(--line);border-radius:999px;padding:12px 26px;font-weight:700;color:var(--ink);font-size:15px;box-shadow:0 10px 24px -16px rgba(31,20,30,.25)}
+.label-callouts{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:34px}
+.label-callouts span{font-family:'Caveat',cursive;font-size:21px;font-weight:600;color:var(--purple-dark);background:var(--purple-light);border-radius:10px;padding:6px 16px}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px 44px;margin-top:48px;text-align:left}
+@media(max-width:900px){.feat-grid{grid-template-columns:1fr}}
+.feat-grid h4{font-family:'Caveat',cursive;font-size:1.5rem;color:var(--ink);margin-bottom:6px}
+.feat-grid p{font-size:.96rem}
+.apps-row{display:flex;flex-wrap:wrap;justify-content:center;gap:26px;margin-top:44px}
+.apps-row a,.apps-row div{display:flex;flex-direction:column;align-items:center;gap:10px;width:110px}
+.apps-row img{width:58px;height:58px;border-radius:13px}
+.apps-row h5{font-size:13.5px;font-weight:700;color:var(--ink);text-align:center}
+.xc-testimonial{max-width:760px;margin:0 auto;text-align:center}
+.xc-testimonial blockquote{font-size:1.3rem;font-style:italic;color:var(--ink);line-height:1.6}
+.xc-testimonial .who{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:26px}
+.xc-testimonial .who img.avatar{width:56px;height:56px;border-radius:50%;object-fit:cover}
+.xc-testimonial .who img.logo{height:30px;width:auto;opacity:.9}
+.join-band{background:var(--ink);color:#fff;padding:64px 0;text-align:center}
+.join-band h6{font-family:'Caveat',cursive;font-size:2rem;color:#fff}
+.advisor-list{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:26px}
+.advisor-list li{list-style:none;font-size:13px;font-weight:600;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:8px 18px}
+.hero-side{position:relative;max-width:1000px;margin:44px auto 0}
+.hero-side .side{position:absolute;right:-2%;bottom:-6%;width:30%;border-radius:12px;box-shadow:0 26px 54px -22px rgba(31,20,30,.45)}
+@media(max-width:800px){.hero-side .side{display:none}}
+
 .benefit-band{background:var(--purple);color:#fff}
 .benefit-band .eyebrow{color:#fff;opacity:.75}
 .benefit-band h2{color:#fff}
