@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="odoo-replica.css?v=11"/>
+<link rel="stylesheet" href="odoo-replica.css?v=12"/>
 </head>
 <body>
 
@@ -28,7 +28,6 @@
       <a href="inventory.html">Inventory</a>
       <a href="manufacturing.html">Manufacturing</a>
       <a href="purchase.html">Purchase</a>
-      <a href="dashboards.html">Dashboards</a>
     </div>
   </div>
 </nav>
@@ -49,10 +48,10 @@
   <div class="container center">
     <h2 class="section-h">Fire orders straight to the <span class="od-u-teal">kitchen</span></h2>
     <p class="section-sub center"><b>Counter and kitchen display, working as one.</b> Servers work the floor plan table by table, build the Nyonya tasting combos in a tap, and every ticket lands in the kitchen the moment it's rung up — no shouting, no lost slips.</p>
-    <div class="xc-shot"><img class="xc-img" src="img/odoo-pages/restaurant/take-your-orders-with-precision-3.webp" alt="Kitchen display with live tickets"/></div>
-    <div class="img-duo">
-      <img class="xc-img" src="img/odoo-pages/restaurant/take-your-orders-with-precision-1.webp" alt="Self-ordering menu"/>
-      <img class="xc-img" src="img/odoo-pages/restaurant/take-your-orders-with-precision-2.webp" alt="Order status board"/>
+    <div class="pos-showcase">
+      <img class="pos-main" src="img/odoo-pages/restaurant/take-your-orders-with-precision-3.webp" alt="Kitchen display with live tickets"/>
+      <img class="pos-side" src="img/odoo-pages/restaurant/take-your-orders-with-precision-1.webp" alt="Self-ordering menu"/>
+      <img class="pos-float" src="img/odoo-pages/restaurant/take-your-orders-with-precision-2.webp" alt="Order status board"/>
     </div>
   </div>
 </section>
@@ -61,10 +60,14 @@
   <div class="container center">
     <h2 class="section-h">Let guests book their own table</h2>
     <p class="section-sub center"><b>Reservations that manage themselves.</b> Guests book online, and every reservation drops straight onto your floor plan — which your host rearranges with a simple drag-and-drop, so there are no double-booked tables on a Sunday rush.</p>
-    <div class="xc-shot"><img class="xc-img" src="img/odoo-pages/restaurant/table-booking-made-simple.webp" alt="Floor plan with reserved tables"/></div>
-    <div class="img-duo">
-      <img class="xc-img" src="img/odoo-pages/restaurant/table-booking-made-simple-1.webp" alt="Edit booking"/>
-      <img class="xc-img" src="img/odoo-pages/restaurant/table-booking-made-simple-2.webp" alt="Pick a date and time"/>
+    <div class="tb-showcase">
+      <img class="tb-plan" src="img/odoo-pages/restaurant/table-booking-made-simple.webp" alt="Floor plan with reserved tables"/>
+      <img class="tb-edit" src="img/odoo-pages/restaurant/table-booking-made-simple-1.webp" alt="Edit booking"/>
+      <img class="tb-cal" src="img/odoo-pages/restaurant/table-booking-made-simple-2.webp" alt="Pick a date and time"/>
+      <svg class="tb-arrow" viewBox="0 0 92 72" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M5 6 C 9 42, 36 66, 80 50"/>
+        <path d="M67 58 L 82 49 L 75 33"/>
+      </svg>
     </div>
   </div>
 </section>
@@ -78,10 +81,14 @@
 </section>
 
 <section class="xc-section">
-  <div class="container center">
-    <h2 class="section-h">Roster the team with ease</h2>
-    <p class="section-sub center"><b>Shifts sorted, everyone informed.</b> Plan front-of-house and kitchen shifts, assign them automatically or tweak by hand around who's free, cover every role, and share the line-up so tomorrow's team knows exactly when they're on.</p>
-    <div class="xc-shot"><img class="xc-img" src="img/odoo-pages/restaurant/plan-your-services-like-a-pro.webp" alt="Staff planning schedule"/></div>
+  <div class="container">
+    <div class="od-row">
+      <div class="od-media"><img class="main" src="img/odoo-pages/restaurant/plan-your-services-like-a-pro.webp" alt="Staff planning schedule"/></div>
+      <div class="od-copy">
+        <h2>Roster the team with ease</h2>
+        <p><b>Shifts sorted, everyone informed.</b> Plan front-of-house and kitchen shifts, assign them automatically or tweak by hand around who's free, cover every role, and share the line-up so tomorrow's team knows exactly when they're on.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -117,6 +124,6 @@
   </div>
 </section>
 
-<script src="odoo-replica.js?v=11"></script>
+<script src="odoo-replica.js?v=12"></script>
 </body>
 </html>

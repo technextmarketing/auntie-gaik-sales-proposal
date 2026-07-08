@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="odoo-replica.css?v=11"/>
+<link rel="stylesheet" href="odoo-replica.css?v=12"/>
 </head>
 <body>
 
@@ -28,7 +28,6 @@
       <a href="inventory.html">Inventory</a>
       <a href="manufacturing.html">Manufacturing</a>
       <a href="purchase.html" class="active">Purchase</a>
-      <a href="dashboards.html">Dashboards</a>
     </div>
   </div>
 </nav>
@@ -68,20 +67,25 @@
   <div class="container center">
     <h2 class="section-h">Deals that fit each supplier</h2>
     <p class="section-sub center"><b>Buy the smart way for every situation.</b> Compare quotes side by side, lock in prices with recurring agreements, and call off stock from a blanket order as the kitchen needs it.</p>
-    <div class="img-duo">
-      <img class="xc-img" src="img/odoo-pages/purchase/flexible_1.webp" alt="Compare quotes"/>
-      <img class="xc-img" src="img/odoo-pages/purchase/flexible_2.webp" alt="Blanket order"/>
+    <div class="stack-shots">
+      <img class="shot-1" src="img/odoo-pages/purchase/flexible_1.webp" alt="Request for quotation with alternatives"/>
+      <div class="mid-arrow"><svg width="46" height="64" viewBox="0 0 46 64" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 4 C 27 22, 21 42, 22 56"/><path d="M12 46 L22 58 L32 47"/></svg></div>
+      <img class="shot-2" src="img/odoo-pages/purchase/flexible_2.webp" alt="Compare order lines"/>
     </div>
   </div>
 </section>
 
 <section class="xc-section alt">
-  <div class="container center">
-    <h2 class="section-h">Bills on your <span class="od-hl-yellow">terms</span></h2>
-    <p class="section-sub center"><b>Pay how it suits you.</b> Bill on what was ordered or what actually arrived, in one invoice or split across several, with payment status flowing straight into the accounts.</p>
-    <div class="img-duo">
-      <img class="xc-img" src="img/odoo-pages/purchase/charge_vendors_1.webp" alt="Vendor bill"/>
-      <img class="xc-img" src="img/odoo-pages/purchase/charge_vendors_2.webp" alt="Billing options"/>
+  <div class="container">
+    <div class="od-row">
+      <div class="od-copy">
+        <h2>Bills on your <span class="od-hl-yellow">terms</span></h2>
+        <p><b>Pay how it suits you.</b> Bill on what was ordered or what actually arrived, in one invoice or split across several, with payment status flowing straight into the accounts.</p>
+      </div>
+      <div class="od-media">
+        <img class="main" src="img/odoo-pages/purchase/charge_vendors_1.webp" alt="Vendor bills list"/>
+        <img class="over-left" src="img/odoo-pages/purchase/charge_vendors_2.webp" alt="Payment status"/>
+      </div>
     </div>
   </div>
 </section>
@@ -90,9 +94,9 @@
   <div class="container center">
     <h2 class="section-h">The finer points, handled</h2>
     <p class="section-sub center"><b>All the small stuff that makes buying work</b> — variants, pack sizes and units of measure — kept in step with your counter and store-room.</p>
-    <div class="img-duo">
-      <img class="xc-img" src="img/odoo-pages/purchase/all_the_small_things_1.webp" alt="Product variants"/>
-      <img class="xc-img" src="img/odoo-pages/purchase/all_the_small_things_2.webp" alt="Units of measure"/>
+    <div class="xc-overlap">
+      <img class="main" src="img/odoo-pages/purchase/all_the_small_things_1.webp" alt="Units of measure"/>
+      <img class="over" src="img/odoo-pages/purchase/all_the_small_things_2.webp" alt="Product attributes"/>
     </div>
   </div>
 </section>
@@ -124,6 +128,6 @@
   </div>
 </section>
 
-<script src="odoo-replica.js?v=11"></script>
+<script src="odoo-replica.js?v=12"></script>
 </body>
 </html>

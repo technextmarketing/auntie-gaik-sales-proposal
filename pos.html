@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="odoo-replica.css?v=11"/>
+<link rel="stylesheet" href="odoo-replica.css?v=12"/>
 </head>
 <body>
 
@@ -28,7 +28,6 @@
       <a href="inventory.html">Inventory</a>
       <a href="manufacturing.html">Manufacturing</a>
       <a href="purchase.html">Purchase</a>
-      <a href="dashboards.html">Dashboards</a>
     </div>
   </div>
 </nav>
@@ -48,6 +47,7 @@
 <section class="xc-section" style="padding-top:0">
   <div class="container">
     <div class="hero-side">
+      <svg class="pos-spark" viewBox="0 0 64 64" fill="none" stroke="#E8695D" stroke-width="6" stroke-linecap="round" aria-hidden="true"><path d="M6 44 L20 37"/><path d="M18 12 L28 26"/><path d="M46 6 L43 22"/></svg>
       <img class="xc-img" src="img/odoo-pages/pos/hero_image.webp" alt="Odoo Point of Sale order screen"/>
       <img class="side" src="img/odoo-pages/pos/payment_terminal.webp" alt="Card payment terminal"/>
     </div>
@@ -58,25 +58,29 @@
   <div class="container center">
     <h2 class="section-h">Simple to learn, <span class="od-u-teal">deep when you need it</span></h2>
     <p class="section-sub center">Your servers pick it up in a single shift, yet everything a busy service demands is one tap away — so the team can focus on the guest, not the till.</p>
-    <div class="label-callouts">
-      <span>Table-side ordering</span>
-      <span>Loyalty &amp; rewards</span>
-      <span>Any payment method</span>
-      <span>Works online or offline</span>
-      <span>Menu categories</span>
-      <span>Big, clear buttons</span>
+    <div class="annot-wrap">
+      <div class="annot al a-l1"><span>Table-side ordering</span><svg viewBox="0 0 34 26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6 C 12 10, 22 14, 30 18"/><path d="M22 20 L31 19 L28 10"/></svg></div>
+      <div class="annot al a-l2"><span>Loyalty &amp; rewards</span><svg viewBox="0 0 34 26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6 C 12 10, 22 14, 30 18"/><path d="M22 20 L31 19 L28 10"/></svg></div>
+      <div class="annot al a-l3"><span>Any payment method</span><svg viewBox="0 0 34 26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 20 C 12 16, 22 12, 30 8"/><path d="M22 6 L31 7 L28 16"/></svg></div>
+      <div class="annot ar a-r1"><span>Works online or offline</span><svg viewBox="0 0 34 26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M32 6 C 22 10, 12 14, 4 18"/><path d="M12 20 L3 19 L6 10"/></svg></div>
+      <div class="annot ar a-r2"><span>Menu categories</span><svg viewBox="0 0 34 26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M32 6 C 22 10, 12 14, 4 18"/><path d="M12 20 L3 19 L6 10"/></svg></div>
+      <div class="annot ar a-r3"><span>Big, clear buttons</span><svg viewBox="0 0 34 26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M32 20 C 22 16, 12 12, 4 8"/><path d="M12 6 L3 7 L6 16"/></svg></div>
+      <img class="annot-img" src="img/odoo-pages/pos/interface.webp" alt="Odoo POS interface"/>
     </div>
-    <div class="xc-shot"><img class="xc-img" src="img/odoo-pages/pos/interface.webp" alt="Odoo POS interface"/></div>
   </div>
 </section>
 
 <section class="xc-section">
-  <div class="container center">
-    <h2 class="section-h">Let guests order themselves</h2>
-    <p class="section-sub center"><b>Fewer queues on the busiest nights.</b> From a kiosk or their own phone, guests can browse the menu, place their order and pay — freeing your floor staff to look after the room.</p>
-    <div class="img-duo" style="max-width:720px">
-      <img class="xc-img" src="img/odoo-pages/pos/self_service_for_the_win_kiosk.webp" alt="Self-service kiosk"/>
-      <img class="xc-img" src="img/odoo-pages/pos/self_service_for_the_win_mobile.webp" alt="Self-ordering on a phone"/>
+  <div class="container">
+    <div class="od-row">
+      <div class="od-media circle">
+        <img class="main" src="img/odoo-pages/pos/self_service_for_the_win_kiosk.webp" alt="Self-service kiosk"/>
+        <img class="over" src="img/odoo-pages/pos/self_service_for_the_win_mobile.webp" alt="Self-ordering on a phone"/>
+      </div>
+      <div class="od-copy">
+        <h2>Let guests order themselves</h2>
+        <p><b>Fewer queues on the busiest nights.</b> From a kiosk or their own phone, guests can browse the menu, place their order and pay — freeing your floor staff to look after the room.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -99,9 +103,10 @@
   <div class="container center">
     <h2 class="section-h">Order ahead, collect on arrival</h2>
     <p class="section-sub center"><b>One tidy flow across every channel.</b> Guests order online for pickup, and large pre-orders land on a preparation screen so the kitchen can get ahead before the crowd walks in.</p>
-    <div class="img-duo">
-      <img class="xc-img" src="img/odoo-pages/pos/cross_channel_selling_1.webp" alt="Online order for pickup"/>
-      <img class="xc-img" src="img/odoo-pages/pos/cross_channel_selling_2.webp" alt="Kitchen preparation display"/>
+    <div class="duo-arrow">
+      <img src="img/odoo-pages/pos/cross_channel_selling_1.webp" alt="Online order for pickup"/>
+      <svg class="darr" viewBox="0 0 70 40" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20 C 24 14, 44 22, 62 20"/><path d="M52 10 L64 20 L52 30"/></svg>
+      <img src="img/odoo-pages/pos/cross_channel_selling_2.webp" alt="Kitchen preparation display"/>
     </div>
   </div>
 </section>
@@ -136,6 +141,6 @@
   </div>
 </section>
 
-<script src="odoo-replica.js?v=11"></script>
+<script src="odoo-replica.js?v=12"></script>
 </body>
 </html>

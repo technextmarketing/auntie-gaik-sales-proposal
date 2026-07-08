@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="odoo-replica.css?v=11"/>
+<link rel="stylesheet" href="odoo-replica.css?v=12"/>
 </head>
 <body>
 
@@ -28,7 +28,6 @@
       <a href="inventory.html" class="active">Inventory</a>
       <a href="manufacturing.html">Manufacturing</a>
       <a href="purchase.html">Purchase</a>
-      <a href="dashboards.html">Dashboards</a>
     </div>
   </div>
 </nav>
@@ -74,10 +73,14 @@
 </section>
 
 <section class="xc-section alt">
-  <div class="container center">
-    <h2 class="section-h">Know where everything is</h2>
-    <p class="section-sub center">Track lots, batches and expiry dates in real time, and look up any item in a second. Cycle counts keep the records honest without ever closing the store-room for a full stock take.</p>
-    <div class="xc-shot"><img class="xc-img" src="img/odoo-pages/inventory/optimize_warehouse.webp" alt="Warehouse view"/></div>
+  <div class="container">
+    <div class="od-row">
+      <div class="od-copy">
+        <h2>Know where everything is</h2>
+        <p>Track lots, batches and expiry dates in real time, and look up any item in a second. Cycle counts keep the records honest without ever closing the store-room for a full stock take.</p>
+      </div>
+      <div class="od-media"><img class="main" src="img/odoo-pages/inventory/optimize_warehouse.webp" alt="Warehouse view"/></div>
+    </div>
   </div>
 </section>
 
@@ -85,10 +88,10 @@
   <div class="container center">
     <h2 class="section-h">Pick the efficient way</h2>
     <p class="section-sub center">Odoo supports several picking strategies, so gathering ingredients for prep or a big pre-order takes the shortest path.</p>
-    <div class="hl-grid" style="margin-top:44px">
-      <div class="hl-card"><div class="hl-body" style="text-align:center"><img src="img/odoo-pages/inventory/wave-picking.svg" alt="" style="height:80px;margin:0 auto 14px"/><h3>Wave picking</h3><p>Group tasks by area and regroup at one point — handy for a larger back store.</p></div></div>
-      <div class="hl-card"><div class="hl-body" style="text-align:center"><img src="img/odoo-pages/inventory/cluster-picking.svg" alt="" style="height:80px;margin:0 auto 14px"/><h3>Cluster picking</h3><p>Gather several orders in one trip to save time — ideal for small items.</p></div></div>
-      <div class="hl-card"><div class="hl-body" style="text-align:center"><img src="img/odoo-pages/inventory/batch-picking.svg" alt="" style="height:80px;margin:0 auto 14px"/><h3>Batch picking</h3><p>Combine multiple orders into one pick and consolidate at the end.</p></div></div>
+    <div class="pick-grid">
+      <div class="pick-item"><div class="pick-card"><img src="img/odoo-pages/inventory/wave-picking.svg" alt="Wave picking"/></div><h3>Wave picking</h3><p>Group tasks by area and regroup at one point — handy for a larger back store.</p></div>
+      <div class="pick-item"><div class="pick-card"><img src="img/odoo-pages/inventory/cluster-picking.svg" alt="Cluster picking"/></div><h3>Cluster picking</h3><p>Gather several orders in one trip to save time — ideal for small items.</p></div>
+      <div class="pick-item"><div class="pick-card"><img src="img/odoo-pages/inventory/batch-picking.svg" alt="Batch picking"/></div><h3>Batch picking</h3><p>Combine multiple orders into one pick and consolidate at the end.</p></div>
     </div>
   </div>
 </section>
@@ -129,6 +132,6 @@
   </div>
 </section>
 
-<script src="odoo-replica.js?v=11"></script>
+<script src="odoo-replica.js?v=12"></script>
 </body>
 </html>
