@@ -326,8 +326,12 @@ section{padding:108px 0}
 .xc-section.alt{background:var(--bg-alt)}
 .xc-img{display:block;width:100%;border-radius:14px}
 .xc-shot{max-width:1000px;margin:44px auto 0}
-.img-duo{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start;max-width:1000px;margin:44px auto 0}
+.img-duo{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:center;max-width:1000px;margin:44px auto 0}
 @media(max-width:800px){.img-duo{grid-template-columns:1fr}}
+/* tight masonry collage for a set of related screenshots (e.g. RFQ views) */
+.img-collage{columns:2;column-gap:22px;max-width:940px;margin:44px auto 0}
+@media(max-width:800px){.img-collage{columns:1}}
+.img-collage img{display:block;width:100%;border-radius:12px;margin-bottom:22px;break-inside:avoid;-webkit-column-break-inside:avoid;box-shadow:0 16px 40px -28px rgba(31,20,30,.3)}
 .chip-row{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:38px}
 .chip{background:#fff;border:1px solid var(--line);border-radius:999px;padding:12px 26px;font-weight:700;color:var(--ink);font-size:15px;box-shadow:0 10px 24px -16px rgba(31,20,30,.25)}
 .label-callouts{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:34px}
@@ -376,7 +380,7 @@ section{padding:108px 0}
 .od-card h3{font-family:'Inter',sans-serif;font-size:1.22rem;font-weight:800;margin-bottom:12px;color:var(--ink);padding-right:44px}
 .od-card p{font-size:1rem}
 .od-card .star{position:absolute;top:22px;right:24px;width:32px;height:32px}
-.od-card img{width:100%;border-radius:10px;margin-top:18px}
+.od-card img{width:100%;max-height:220px;object-fit:cover;object-position:top;border-radius:10px;margin-top:18px}
 .od-h-left{text-align:left;margin-left:0;max-width:12em}
 /* odoo hand-drawn heading strokes */
 .od-ellipse{position:relative;display:inline-block;padding:0 .08em}
