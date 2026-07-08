@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="odoo-replica.css?v=13"/>
+<link rel="stylesheet" href="odoo-replica.css?v=14"/>
 </head>
 <body>
 
@@ -54,11 +54,15 @@
   <div class="container center">
     <h2 class="section-h">Reordering that <span class="od-u-teal">runs itself</span></h2>
     <p class="section-sub center"><b>Set the rules once.</b> When a tracked ingredient like nutmeg or belacan runs low, Odoo drafts the purchase order for you — and can chase the supplier to confirm the delivery date.</p>
-    <div class="img-collage">
-      <img src="img/odoo-pages/purchase/automated_rfq_1.webp" alt="Draft purchase order"/>
-      <img src="img/odoo-pages/purchase/automated_rfq_4.webp" alt="Reordering rule"/>
-      <img src="img/odoo-pages/purchase/automated_rfq_2.webp" alt="Replenishment view"/>
-      <img src="img/odoo-pages/purchase/automated_rfq_3.webp" alt="Confirmed order"/>
+    <div class="rfq-collage">
+      <div class="rfq-col left">
+        <img src="img/odoo-pages/purchase/automated_rfq_1.webp" alt="RFQ status counts"/>
+        <img class="loc" src="img/odoo-pages/purchase/automated_rfq_4.webp" alt="Replenishment by location"/>
+      </div>
+      <div class="rfq-col right">
+        <img src="img/odoo-pages/purchase/automated_rfq_2.webp" alt="Purchase order status list"/>
+        <img src="img/odoo-pages/purchase/automated_rfq_3.webp" alt="Order once or automate"/>
+      </div>
     </div>
   </div>
 </section>
@@ -128,6 +132,6 @@
   </div>
 </section>
 
-<script src="odoo-replica.js?v=13"></script>
+<script src="odoo-replica.js?v=14"></script>
 </body>
 </html>

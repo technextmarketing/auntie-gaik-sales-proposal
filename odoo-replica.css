@@ -333,11 +333,11 @@ section{padding:108px 0}
 @media(max-width:800px){.img-collage{columns:1}}
 .img-collage img{display:block;width:100%;border-radius:12px;margin-bottom:22px;break-inside:avoid;-webkit-column-break-inside:avoid;box-shadow:0 16px 40px -28px rgba(31,20,30,.3)}
 /* stacked shots with hand-drawn arrow between (odoo purchase "flexible agreements") */
-.stack-shots{max-width:900px;margin:44px auto 0}
+.stack-shots{max-width:860px;margin:44px auto 0}
 .stack-shots img{display:block;border-radius:12px;box-shadow:0 22px 50px -28px rgba(31,20,30,.3)}
-.stack-shots .shot-1{width:100%}
+.stack-shots .shot-1{width:92%;margin-left:auto}
 .stack-shots .mid-arrow{display:flex;justify-content:center;padding:22px 0;color:var(--purple-dark)}
-.stack-shots .shot-2{width:88%;margin-left:auto}
+.stack-shots .shot-2{width:78%;margin-left:auto}
 /* small-left / big-right duo with arrow between (odoo "cross-channel selling") */
 .duo-arrow{display:grid;grid-template-columns:1fr 70px 1.35fr;gap:14px;align-items:center;max-width:1040px;margin:44px auto 0}
 .duo-arrow img{width:100%;border-radius:12px;box-shadow:0 18px 44px -28px rgba(31,20,30,.28)}
@@ -354,8 +354,8 @@ section{padding:108px 0}
 /* picking strategy cards — big illustration in card, caption below (odoo "minimize picking movements") */
 .pick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;max-width:1120px;margin:48px auto 0;text-align:left}
 @media(max-width:900px){.pick-grid{grid-template-columns:1fr}}
-.pick-card{background:#fff;border-radius:14px;padding:38px 30px;box-shadow:0 18px 44px -26px rgba(31,20,30,.22);display:flex;align-items:center;justify-content:center}
-.pick-card img{width:100%;max-width:250px}
+.pick-card{background:#fff;border-radius:14px;padding:28px 22px;box-shadow:0 18px 44px -26px rgba(31,20,30,.22);display:flex;align-items:center;justify-content:center}
+.pick-card img{width:100%;max-width:345px}
 .pick-item h3{font-family:'Inter',sans-serif;font-size:1.15rem;font-weight:800;margin:20px 0 8px;color:var(--ink)}
 .pick-item p{font-size:.95rem}
 /* paperless shop-floor collage (odoo "become a paperless company") */
@@ -399,6 +399,17 @@ section{padding:108px 0}
 .od-hl-coral{background:rgba(232,105,93,.42);box-decoration-break:clone;-webkit-box-decoration-break:clone;padding:.02em .18em;border-radius:4px}
 .od-ellipse-blue{position:relative;display:inline-block;padding:0 .08em}
 .od-ellipse-blue::after{content:"";position:absolute;left:-6%;top:-12%;width:112%;height:128%;border:3.5px solid #4a90e2;border-radius:50%;transform:rotate(-4deg);pointer-events:none}
+/* staggered RFQ collage (odoo "Automated RFQs for the busy bee") */
+.rfq-collage{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:980px;margin:48px auto 0;align-items:start}
+.rfq-collage::before{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:70%;aspect-ratio:1;background:rgba(113,102,125,.08);border-radius:50%;z-index:-1}
+.rfq-col{display:flex;flex-direction:column;gap:34px}
+.rfq-col.right{padding-top:66px}
+.rfq-collage img{width:100%;border-radius:12px;box-shadow:0 18px 44px -28px rgba(31,20,30,.3)}
+.rfq-col.left .loc{width:84%}
+@media(max-width:800px){.rfq-collage{grid-template-columns:1fr}.rfq-col.right{padding-top:0}}
+/* "+" separator and hand-written follow-up line (odoo inventory hero) */
+.plus-sep{font-size:64px;line-height:1;color:#c9c6d0;text-align:center;margin:60px 0 10px;font-weight:300}
+.script-line{font-family:'Caveat',cursive;font-size:clamp(1.9rem,3.5vw,2.7rem);font-weight:700;color:var(--ink);text-align:center}
 .chip-row{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:38px}
 .chip{background:#fff;border:1px solid var(--line);border-radius:999px;padding:12px 26px;font-weight:700;color:var(--ink);font-size:15px;box-shadow:0 10px 24px -16px rgba(31,20,30,.25)}
 .label-callouts{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:34px}
