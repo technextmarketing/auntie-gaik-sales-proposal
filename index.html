@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="odoo-replica.css?v=3"/>
+<link rel="stylesheet" href="odoo-replica.css?v=4"/>
 </head>
 <body>
 
@@ -21,7 +21,7 @@
       <i>×</i>
       <img class="brand-logo brand-logo-tn" src="img/logo/technext_logo.png" alt="TechNext"/>
     </a>
-    <a href="#cta" class="btn btn-primary nav-cta">Book a walkthrough</a>
+    <a href="mailto:hello@technext.asia?subject=Odoo%20for%20Auntie%20Gaik%20Lean" class="btn btn-primary nav-cta">Book a walkthrough</a>
   </div>
 </nav>
 
@@ -363,51 +363,14 @@
   </div>
 </section>
 
-<!-- ============ Final CTA (replica of odoo.com "Unleash your growth potential") ============ -->
-<section class="final-cta" id="cta">
-  <div class="container center">
-    <h2>Unleash Auntie Gaik Lean's growth potential.</h2>
-    <p>TechNext will set up your pilot counter, migrate your menu, and train your team — at no risk to a single service.</p>
-    <div class="hero-ctas">
-      <a href="mailto:hello@technext.asia?subject=Odoo%20for%20Auntie%20Gaik%20Lean" class="btn btn-primary btn-lg">Start now — book the walkthrough</a>
-      <a href="tel:+6584272549" class="btn btn-ghost-dark btn-lg">Talk to TechNext</a>
-    </div>
-    <p class="btn-note">No disruption to service. No commitment to see your first demo.</p>
+<!-- ============ Floating video preview modal ============ -->
+<div class="video-modal" id="video-modal" aria-hidden="true">
+  <button class="video-modal-close" id="video-modal-close" aria-label="Close preview">&times;</button>
+  <div class="video-modal-inner">
+    <video id="video-modal-player" controls playsinline></video>
   </div>
-</section>
+</div>
 
-<footer>
-  <div class="container footer-grid">
-    <div class="footer-col footer-brand">
-      <b>odoo</b>
-      <p>Proposal prepared by <b>TechNext</b> for Auntie Gaik Lean's Old School Eatery. Odoo is a suite of open source business apps covering CRM, eCommerce, accounting, inventory, point of sale, project management and more.</p>
-    </div>
-    <div class="footer-col">
-      <h4>This Proposal</h4>
-      <a href="#platform">Apps for Auntie Gaik Lean</a>
-      <a href="#industry">Built for Fine Dining</a>
-      <a href="#pos">Restaurant Made Easy</a>
-      <a href="#why">Why TechNext</a>
-    </div>
-    <div class="footer-col">
-      <h4>TechNext</h4>
-      <a href="mailto:hello@technext.asia">hello@technext.asia</a>
-      <a href="#cta">Book a walkthrough</a>
-      <a href="#top">Back to top</a>
-    </div>
-    <div class="footer-col">
-      <h4>About Odoo</h4>
-      <a href="https://www.odoo.com" target="_blank" rel="noopener">Odoo.com</a>
-      <a href="https://www.odoo.com/industries/fine-dining-restaurant" target="_blank" rel="noopener">Odoo for Fine Dining</a>
-      <a href="https://www.odoo.com/pricing" target="_blank" rel="noopener">Odoo Pricing</a>
-    </div>
-  </div>
-  <div class="container footer-bottom">
-    <span>Sales proposal deck — not for public distribution.</span>
-    <span>Prepared by TechNext · hello@technext.asia</span>
-  </div>
-</footer>
-
-<script src="odoo-replica.js?v=3"></script>
+<script src="odoo-replica.js?v=4"></script>
 </body>
 </html>

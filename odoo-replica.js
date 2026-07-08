@@ -59,6 +59,42 @@ if (posVids.length && 'IntersectionObserver' in window) {
   posVids.forEach((v) => videoObserver.observe(v));
 }
 
+// Click a POS demo card -> floating video preview (with sound)
+const videoModal = document.getElementById('video-modal');
+if (videoModal) {
+  const modalPlayer = document.getElementById('video-modal-player');
+  const closeBtn = document.getElementById('video-modal-close');
+
+  const openModal = (src, label) => {
+    modalPlayer.src = src;
+    modalPlayer.muted = false;
+    if (label) modalPlayer.setAttribute('aria-label', label);
+    videoModal.classList.add('open');
+    videoModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    modalPlayer.play().catch(() => {});
+  };
+  const closeModal = () => {
+    videoModal.classList.remove('open');
+    videoModal.setAttribute('aria-hidden', 'true');
+    modalPlayer.pause();
+    modalPlayer.removeAttribute('src');
+    modalPlayer.load();
+    document.body.style.overflow = '';
+  };
+
+  document.querySelectorAll('.pos-card').forEach((card) => {
+    const v = card.querySelector('.pos-vid');
+    if (!v) return;
+    card.addEventListener('click', () => openModal(v.getAttribute('src'), v.getAttribute('aria-label')));
+  });
+  closeBtn.addEventListener('click', closeModal);
+  videoModal.addEventListener('click', (e) => { if (e.target === videoModal) closeModal(); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && videoModal.classList.contains('open')) closeModal();
+  });
+}
+
 // Scroll-reveal entrance animations (titles, cards, media)
 (function () {
   const selector = [
