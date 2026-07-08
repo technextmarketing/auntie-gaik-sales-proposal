@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="odoo-replica.css?v=7"/>
+<link rel="stylesheet" href="odoo-replica.css?v=8"/>
 </head>
 <body>
 
@@ -39,12 +39,11 @@
     <span class="eyebrow">Odoo Accounting</span>
     <h1>Accounting made <span class="ink-purple">effortless</span></h1>
     <p class="section-sub center">Imagine one AI-native Accounting platform for all your financial operations, from reconciliation and expenses to tax returns and real-time reporting. Fast, complete, and simple.</p>
-    <ul class="advisor-list">
-      <li>Micro Business (1-5 employees)</li>
-      <li>Small company (5-50 employees)</li>
-      <li>Mid-sized company (50-250 employees)</li>
-      <li>Large Company (&gt;200 Employees)</li>
-    </ul>
+    <div class="od-btn-row">
+      <a href="#" class="btn btn-primary">Start now - It's free</a>
+      <a href="#" class="btn btn-ghost">Meet an advisor</a>
+    </div>
+    <p class="od-note">Free, forever, with unlimited users. <a href="#">See why</a></p>
   </div>
 </header>
 
@@ -57,11 +56,15 @@
 
 <!-- S3: Unlock true performance -->
 <section class="xc-section alt">
-  <div class="container center">
-    <h2 class="section-h">Unlock true performance</h2>
-    <p class="section-sub center"><b>Speed matters.</b> All operations are processed in less than 90 milliseconds, faster than the blink of an eye. It helps accountants do much more in less time. A snappy interface is a game changer.</p>
-    <div class="chip-row"><span class="chip">5 seconds from login to vendor bill</span></div>
-    <div class="xc-shot"><img class="xc-img" src="img/odoo-pages/accounting/accounting-vendor-bill.webp" alt="Vendor bill in Odoo Accounting"/></div>
+  <div class="container">
+    <div class="od-row">
+      <div class="od-copy">
+        <h2>Unlock true performance</h2>
+        <p><b>Speed matters.</b> All operations are processed in less than 90 milliseconds, faster than the blink of an eye. It helps accountants do much more in less time. A snappy interface is a game changer.</p>
+        <div class="chip-row" style="justify-content:flex-start"><span class="chip">5 seconds from login to vendor bill</span></div>
+      </div>
+      <div class="od-media"><img class="main" src="img/odoo-pages/accounting/accounting-vendor-bill.webp" alt="Vendor bill in Odoo Accounting"/></div>
+    </div>
   </div>
 </section>
 
@@ -79,12 +82,16 @@
 
 <!-- S5: Mobile experience -->
 <section class="xc-section alt">
-  <div class="container center">
-    <h2 class="section-h">Enjoy the mobile experience</h2>
-    <p class="section-sub center"><b>Your mobile companion.</b> Take pictures of your expenses, and let the Artificial Intelligence do the rest!</p>
-    <div class="img-duo">
-      <img class="xc-img" src="img/odoo-pages/accounting/accounting-mobile-02.webp" alt="Odoo Accounting mobile"/>
-      <img class="xc-img" src="img/odoo-pages/accounting/accounting-mobile-01.webp" alt="Expense photo capture"/>
+  <div class="container">
+    <div class="od-row">
+      <div class="od-media circle">
+        <img class="main" src="img/odoo-pages/accounting/accounting-mobile-02.webp" alt="Odoo Accounting mobile"/>
+        <img class="over" src="img/odoo-pages/accounting/accounting-mobile-01.webp" alt="Expense photo capture"/>
+      </div>
+      <div class="od-copy">
+        <h2>Enjoy the mobile experience</h2>
+        <p><b>Your mobile companion.</b> Take pictures of your expenses, and let the Artificial Intelligence do the rest!</p>
+      </div>
     </div>
   </div>
 </section>
@@ -104,16 +111,16 @@
 <!-- S8: All the features done right -->
 <section class="xc-section alt">
   <div class="container center">
-    <h2 class="section-h">All the features done right.</h2>
-    <div class="feat-grid">
-      <div><h4>Worldwide compatibility</h4><p>Odoo is pre-configured to address your country's requirements: charts of accounts, taxes, country-specific reports, electronic invoicing, audit files, and fiscal positions to automatically apply the right tax rates and accounts.</p></div>
-      <div><h4>Real-time reporting</h4><p>Real-time financial performance reports empower you to make informed decisions for your business. Additionally, you can easily annotate, export, and access detailed information for each report.</p></div>
-      <div><h4>Electronic invoicing (EDI)</h4><p>Various EDI file formats are available depending on your company's country. Send and receive electronic invoices in multiple formats and standards, such as Peppol.</p></div>
-      <div><h4>Automated follow-ups</h4><p>Odoo helps you identify late payments and allows you to schedule and send the appropriate reminders based on the number of days overdue. You can send your follow-ups via different means, such as email, post, or SMS.</p></div>
-      <div><h4>Deferrals</h4><p>Defer your revenues and expenses, either manually or on each invoice/bill validation. You can also audit the entries from dedicated reports.</p></div>
-      <div><h4>Dynamic taxes and accounts</h4><p>No matter where your customers and suppliers are established, if they have a Tax ID or not, if the goods are sold cross-border, Odoo computes the right taxes and income or expense accounts.</p></div>
+    <h2 class="section-h od-h-left">All the features done right.</h2>
+    <div class="od-cards">
+      <div class="od-card"><svg class="star" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3l4.9 10.4 11.1 1.4-8.2 7.8 2.1 11L20 28.3 10.1 33.6l2.1-11L4 14.8l11.1-1.4z" fill="#F5C518" stroke="#2A2A3A" stroke-width="2" stroke-linejoin="round"/></svg><h3>Worldwide compatibility</h3><p>Odoo is pre-configured to address your country's requirements: charts of accounts, taxes, country-specific reports, electronic invoicing, audit files, and fiscal positions to automatically apply the right tax rates and accounts.</p></div>
+      <div class="od-card"><svg class="star" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3l4.9 10.4 11.1 1.4-8.2 7.8 2.1 11L20 28.3 10.1 33.6l2.1-11L4 14.8l11.1-1.4z" fill="#F5C518" stroke="#2A2A3A" stroke-width="2" stroke-linejoin="round"/></svg><h3>Real-time reporting</h3><p>Real-time financial performance reports empower you to make informed decisions for your business. Additionally, you can easily annotate, export, and access detailed information for each report.</p></div>
+      <div class="od-card"><svg class="star" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3l4.9 10.4 11.1 1.4-8.2 7.8 2.1 11L20 28.3 10.1 33.6l2.1-11L4 14.8l11.1-1.4z" fill="#F5C518" stroke="#2A2A3A" stroke-width="2" stroke-linejoin="round"/></svg><h3>Electronic invoicing (EDI)</h3><p>Various EDI file formats are available depending on your company's country. Send and receive electronic invoices in multiple formats and standards, such as Peppol.</p></div>
+      <div class="od-card"><svg class="star" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3l4.9 10.4 11.1 1.4-8.2 7.8 2.1 11L20 28.3 10.1 33.6l2.1-11L4 14.8l11.1-1.4z" fill="#F5C518" stroke="#2A2A3A" stroke-width="2" stroke-linejoin="round"/></svg><h3>Automated follow-ups</h3><p>Odoo helps you identify late payments and allows you to schedule and send the appropriate reminders based on the number of days overdue. You can send your follow-ups via different means, such as email, post, or SMS.</p></div>
+      <div class="od-card"><svg class="star" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3l4.9 10.4 11.1 1.4-8.2 7.8 2.1 11L20 28.3 10.1 33.6l2.1-11L4 14.8l11.1-1.4z" fill="#F5C518" stroke="#2A2A3A" stroke-width="2" stroke-linejoin="round"/></svg><h3>Deferrals</h3><p>Defer your revenues and expenses, either manually or on each invoice/bill validation. You can also audit the entries from dedicated reports.</p></div>
+      <div class="od-card"><svg class="star" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3l4.9 10.4 11.1 1.4-8.2 7.8 2.1 11L20 28.3 10.1 33.6l2.1-11L4 14.8l11.1-1.4z" fill="#F5C518" stroke="#2A2A3A" stroke-width="2" stroke-linejoin="round"/></svg><h3>Dynamic taxes and accounts</h3><p>No matter where your customers and suppliers are established, if they have a Tax ID or not, if the goods are sold cross-border, Odoo computes the right taxes and income or expense accounts.</p></div>
     </div>
-  </div>
+    </div>
 </section>
 
 <!-- S9: One need, one app -->
@@ -131,6 +138,6 @@
   </div>
 </section>
 
-<script src="odoo-replica.js?v=7"></script>
+<script src="odoo-replica.js?v=8"></script>
 </body>
 </html>

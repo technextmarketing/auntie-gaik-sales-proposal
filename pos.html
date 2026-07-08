@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="odoo-replica.css?v=7"/>
+<link rel="stylesheet" href="odoo-replica.css?v=8"/>
 </head>
 <body>
 
@@ -39,12 +39,11 @@
     <span class="eyebrow">Odoo Point of Sale</span>
     <h1>PoS made <span class="ink-purple">for retail</span></h1>
     <p class="section-sub center">A reliable Point of Sale built for modern retailers. Inventory, RFID, promotions, loyalty, B2C &amp; B2B, multi-store, accounting, and eCommerce — all in one platform.</p>
-    <ul class="advisor-list">
-      <li>Micro Business (1-5 employees)</li>
-      <li>Small company (5-50 employees)</li>
-      <li>Mid-sized company (50-250 employees)</li>
-      <li>Large Company (&gt;200 Employees)</li>
-    </ul>
+    <div class="od-btn-row">
+      <a href="#" class="btn btn-primary">Start now - It's free</a>
+      <a href="#" class="btn btn-ghost">Meet an advisor</a>
+    </div>
+    <p class="od-note">Free, forever, with unlimited users. <a href="#">See why</a></p>
   </div>
 </header>
 
@@ -77,27 +76,35 @@
 
 <!-- S4: Self ordering -->
 <section class="xc-section">
-  <div class="container center">
-    <h2 class="section-h">Self ordering for the win</h2>
-    <p class="section-sub center"><b>Step into the future.</b> From the kiosk or their smartphones, your customers can do everything by themselves, from the order to the payment.</p>
-    <div class="img-duo">
-      <img class="xc-img" src="img/odoo-pages/pos/self_service_for_the_win_kiosk.webp" alt="Self-service kiosk"/>
-      <img class="xc-img" src="img/odoo-pages/pos/self_service_for_the_win_mobile.webp" alt="Self-service on mobile"/>
+  <div class="container">
+    <div class="od-row">
+      <div class="od-media circle">
+        <img class="main" src="img/odoo-pages/pos/self_service_for_the_win_kiosk.webp" alt="Self-service kiosk"/>
+        <img class="over" src="img/odoo-pages/pos/self_service_for_the_win_mobile.webp" alt="Self-service on mobile"/>
+      </div>
+      <div class="od-copy">
+        <h2>Self ordering for the win</h2>
+        <p><b>Step into the future.</b> From the kiosk or their smartphones, your customers can do everything by themselves, from the order to the payment.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- S5: Reward loyal customers -->
 <section class="xc-section alt">
-  <div class="container center">
-    <h2 class="section-h">Reward loyal customers</h2>
-    <p class="section-sub center"><b>Keep the clients coming.</b> Improve their shopping experience with loyalty programs: points, rewards, and gift cards. Handling a refund? Use the eWallet to bump up retention while keeping the clients happy.</p>
-    <div class="chip-row">
-      <span class="chip">Coupons</span>
-      <span class="chip">Loyalty cards</span>
-      <span class="chip">Promotion</span>
-      <span class="chip">eWallet</span>
-      <span class="chip">Gift Cards</span>
+  <div class="container">
+    <div class="od-row">
+      <div class="od-copy">
+        <h2>Reward loyal <span class="mark-yellow">customers</span></h2>
+        <p><b>Keep the clients coming.</b> Improve their shopping experience with loyalty programs: points, rewards, and gift cards. Handling a refund? Use the eWallet to bump up retention while keeping the clients happy.</p>
+      </div>
+      <div class="star-grid">
+        <div class="star-item"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3l4.9 10.4 11.1 1.4-8.2 7.8 2.1 11L20 28.3 10.1 33.6l2.1-11L4 14.8l11.1-1.4z" fill="#F5C518" stroke="#2A2A3A" stroke-width="2" stroke-linejoin="round"/></svg><span>Coupons</span></div>
+        <div class="star-item"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3l4.9 10.4 11.1 1.4-8.2 7.8 2.1 11L20 28.3 10.1 33.6l2.1-11L4 14.8l11.1-1.4z" fill="#F5C518" stroke="#2A2A3A" stroke-width="2" stroke-linejoin="round"/></svg><span>Loyalty cards</span></div>
+        <div class="star-item"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3l4.9 10.4 11.1 1.4-8.2 7.8 2.1 11L20 28.3 10.1 33.6l2.1-11L4 14.8l11.1-1.4z" fill="#F5C518" stroke="#2A2A3A" stroke-width="2" stroke-linejoin="round"/></svg><span>Promotion</span></div>
+        <div class="star-item"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3l4.9 10.4 11.1 1.4-8.2 7.8 2.1 11L20 28.3 10.1 33.6l2.1-11L4 14.8l11.1-1.4z" fill="#F5C518" stroke="#2A2A3A" stroke-width="2" stroke-linejoin="round"/></svg><span>eWallet</span></div>
+        <div class="star-item"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3l4.9 10.4 11.1 1.4-8.2 7.8 2.1 11L20 28.3 10.1 33.6l2.1-11L4 14.8l11.1-1.4z" fill="#F5C518" stroke="#2A2A3A" stroke-width="2" stroke-linejoin="round"/></svg><span>Gift Cards</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -116,17 +123,16 @@
 
 <!-- S7: All the features done right -->
 <section class="xc-section alt">
-  <div class="container center">
-    <h2 class="section-h">All the features done right.</h2>
-    <div class="feat-grid">
-      <div><h4>All devices welcome</h4><p>Odoo works like a charm across tablets, laptops, desktops, and industrial machines. Sync it with barcode scanners and scales.</p></div>
-      <div><h4>Loyalty programs</h4><p>Create cross-platform reward programs to keep your customers coming back.</p></div>
-      <div><h4>Multiple cashiers</h4><p>Manage several cashier accounts and secure them with badges or PIN codes.</p></div>
-      <div><h4>Flexible invoicing</h4><p>Print invoices on the fly, send them via email or a QR code.</p></div>
-      <div><h4>Offline payments</h4><p>Payments made offline are automatically synchronized when you are reconnected.</p></div>
-      <div><h4>Integrated payments</h4><p>Use cash, checks, credit cards and add other payment methods in a flash.</p></div>
+  <div class="container">
+    <h2 class="section-h od-h-left">All the features done right.</h2>
+    <div class="od-cards">
+      <div class="od-card"><svg class="star" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3l4.9 10.4 11.1 1.4-8.2 7.8 2.1 11L20 28.3 10.1 33.6l2.1-11L4 14.8l11.1-1.4z" fill="#F5C518" stroke="#2A2A3A" stroke-width="2" stroke-linejoin="round"/></svg><h3>All devices welcome</h3><p>Odoo works like a charm across tablets, laptops, desktops, and industrial machines. Sync it with barcode scanners and scales.</p></div>
+      <div class="od-card"><svg class="star" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3l4.9 10.4 11.1 1.4-8.2 7.8 2.1 11L20 28.3 10.1 33.6l2.1-11L4 14.8l11.1-1.4z" fill="#F5C518" stroke="#2A2A3A" stroke-width="2" stroke-linejoin="round"/></svg><h3>Offline payments</h3><p>Payments made offline are automatically synchronized when you are reconnected.</p></div>
+      <div class="od-card"><svg class="star" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3l4.9 10.4 11.1 1.4-8.2 7.8 2.1 11L20 28.3 10.1 33.6l2.1-11L4 14.8l11.1-1.4z" fill="#F5C518" stroke="#2A2A3A" stroke-width="2" stroke-linejoin="round"/></svg><h3>Loyalty programs</h3><p>Create cross-platform reward programs to keep your customers coming back.</p></div>
+      <div class="od-card"><svg class="star" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3l4.9 10.4 11.1 1.4-8.2 7.8 2.1 11L20 28.3 10.1 33.6l2.1-11L4 14.8l11.1-1.4z" fill="#F5C518" stroke="#2A2A3A" stroke-width="2" stroke-linejoin="round"/></svg><h3>Integrated payments</h3><p>Use cash, checks, credit cards and add other payment methods in a flash.</p><img src="img/odoo-pages/pos/integrated_payments.webp" alt="Integrated payments"/></div>
+      <div class="od-card"><svg class="star" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3l4.9 10.4 11.1 1.4-8.2 7.8 2.1 11L20 28.3 10.1 33.6l2.1-11L4 14.8l11.1-1.4z" fill="#F5C518" stroke="#2A2A3A" stroke-width="2" stroke-linejoin="round"/></svg><h3>Multiple cashiers</h3><p>Manage several cashier accounts and secure them with badges or PIN codes.</p></div>
+      <div class="od-card"><svg class="star" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3l4.9 10.4 11.1 1.4-8.2 7.8 2.1 11L20 28.3 10.1 33.6l2.1-11L4 14.8l11.1-1.4z" fill="#F5C518" stroke="#2A2A3A" stroke-width="2" stroke-linejoin="round"/></svg><h3>Flexible invoicing</h3><p>Print invoices on the fly, send them via email or a QR code.</p></div>
     </div>
-    <div class="xc-shot"><img class="xc-img" src="img/odoo-pages/pos/integrated_payments.webp" alt="Integrated payments"/></div>
   </div>
 </section>
 
@@ -146,6 +152,6 @@
   </div>
 </section>
 
-<script src="odoo-replica.js?v=7"></script>
+<script src="odoo-replica.js?v=8"></script>
 </body>
 </html>

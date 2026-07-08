@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="odoo-replica.css?v=7"/>
+<link rel="stylesheet" href="odoo-replica.css?v=8"/>
 </head>
 <body>
 
@@ -39,12 +39,11 @@
     <span class="eyebrow">Odoo Purchase</span>
     <h1>Restock on time without <span class="ink-purple">overbuying</span></h1>
     <p class="section-sub center">Odoo Purchase uses real-time stock to automate replenishment without tying up cash or delaying shipments.</p>
-    <ul class="advisor-list">
-      <li>Micro Business (1-5 employees)</li>
-      <li>Small company (5-50 employees)</li>
-      <li>Mid-sized company (50-250 employees)</li>
-      <li>Large Company (&gt;200 Employees)</li>
-    </ul>
+    <div class="od-btn-row">
+      <a href="#" class="btn btn-primary">Start now - It's free</a>
+      <a href="#" class="btn btn-ghost">Meet an advisor</a>
+    </div>
+    <p class="od-note">Free, forever, with unlimited users. <a href="#">See why</a></p>
   </div>
 </header>
 
@@ -110,14 +109,14 @@
 <!-- S7: All the features done right -->
 <section class="xc-section alt">
   <div class="container center">
-    <h2 class="section-h">All the features done right.</h2>
-    <div class="feat-grid" style="grid-template-columns:repeat(2,1fr)">
-      <div><h4>More companies, less problems</h4><p>One Odoo environment, multiple companies: automate bank reconciliation, streamline order and invoice management, and easily share data across multiple companies.</p><img class="xc-img" src="img/odoo-pages/purchase/features_2.webp" alt="Multi-company" style="margin-top:14px"/></div>
-      <div><h4>Stats that actually make sense</h4><p>Customize reporting and measure supplier performance with the Purchase Analysis dashboard.</p><img class="xc-img" src="img/odoo-pages/purchase/features_1.webp" alt="Purchase analysis" style="margin-top:14px"/></div>
-      <div><h4>Built for any device</h4><p>Optimally display your purchases on any screen size.</p></div>
-      <div><h4>Smarter purchasing decisions</h4><p>Keep up with the important stuff. Import supplier price lists, references, promotions and product stock to your own database.</p></div>
+    <h2 class="section-h od-h-left">All the features done right.</h2>
+    <div class="od-cards">
+      <div class="od-card"><svg class="star" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3l4.9 10.4 11.1 1.4-8.2 7.8 2.1 11L20 28.3 10.1 33.6l2.1-11L4 14.8l11.1-1.4z" fill="#F5C518" stroke="#2A2A3A" stroke-width="2" stroke-linejoin="round"/></svg><h3>More companies, less problems</h3><p>One Odoo environment, multiple companies: automate bank reconciliation, streamline order and invoice management, and easily share data across multiple companies.</p><img class="xc-img" src="img/odoo-pages/purchase/features_2.webp" alt="Multi-company" style="margin-top:14px"/></div>
+      <div class="od-card"><svg class="star" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3l4.9 10.4 11.1 1.4-8.2 7.8 2.1 11L20 28.3 10.1 33.6l2.1-11L4 14.8l11.1-1.4z" fill="#F5C518" stroke="#2A2A3A" stroke-width="2" stroke-linejoin="round"/></svg><h3>Stats that actually make sense</h3><p>Customize reporting and measure supplier performance with the Purchase Analysis dashboard.</p><img class="xc-img" src="img/odoo-pages/purchase/features_1.webp" alt="Purchase analysis" style="margin-top:14px"/></div>
+      <div class="od-card"><svg class="star" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3l4.9 10.4 11.1 1.4-8.2 7.8 2.1 11L20 28.3 10.1 33.6l2.1-11L4 14.8l11.1-1.4z" fill="#F5C518" stroke="#2A2A3A" stroke-width="2" stroke-linejoin="round"/></svg><h3>Built for any device</h3><p>Optimally display your purchases on any screen size.</p></div>
+      <div class="od-card"><svg class="star" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3l4.9 10.4 11.1 1.4-8.2 7.8 2.1 11L20 28.3 10.1 33.6l2.1-11L4 14.8l11.1-1.4z" fill="#F5C518" stroke="#2A2A3A" stroke-width="2" stroke-linejoin="round"/></svg><h3>Smarter purchasing decisions</h3><p>Keep up with the important stuff. Import supplier price lists, references, promotions and product stock to your own database.</p></div>
     </div>
-  </div>
+    </div>
 </section>
 
 <!-- S8: One need, one app -->
@@ -135,6 +134,6 @@
   </div>
 </section>
 
-<script src="odoo-replica.js?v=7"></script>
+<script src="odoo-replica.js?v=8"></script>
 </body>
 </html>

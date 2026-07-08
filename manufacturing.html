@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="odoo-replica.css?v=7"/>
+<link rel="stylesheet" href="odoo-replica.css?v=8"/>
 </head>
 <body>
 
@@ -39,12 +39,11 @@
     <span class="eyebrow">Odoo Manufacturing</span>
     <h1>The future of <span class="ink-purple">MRP</span></h1>
     <p class="section-sub center">MRP + MES + PLM + Quality + Shop Floor + Maintenance. All you need on one single platform, fast and easy to use.</p>
-    <ul class="advisor-list">
-      <li>Micro Business (1-5 employees)</li>
-      <li>Small company (5-50 employees)</li>
-      <li>Mid-sized company (50-250 employees)</li>
-      <li>Large Company (&gt;200 Employees)</li>
-    </ul>
+    <div class="od-btn-row">
+      <a href="#" class="btn btn-primary">Start now - It's free</a>
+      <a href="#" class="btn btn-ghost">Meet an advisor</a>
+    </div>
+    <p class="od-note">Free, forever, with unlimited users. <a href="#">See why</a></p>
   </div>
 </header>
 
@@ -57,28 +56,31 @@
 
 <!-- S3: Real-time simulated operations -->
 <section class="xc-section alt">
-  <div class="container center">
-    <h2 class="section-h">Real-time simulated operations</h2>
-    <p class="section-sub center">Simulate manufacturing orders with real-time capacity planning, components availability, and cost control. Get just-in-time replenishment propositions and choose how to fulfill parts: make or buy, sub-contract, deliver from another warehouse, etc.</p>
-    <div class="xc-shot"><img class="xc-img" src="img/odoo-pages/manufacturing/operations.webp" alt="Simulated manufacturing operations"/></div>
+  <div class="container">
+    <div class="od-row">
+      <div class="od-media"><img class="main" src="img/odoo-pages/manufacturing/operations.webp" alt="Simulated manufacturing operations"/></div>
+      <div class="od-copy"><h2>Real-time simulated operations</h2><p>Simulate manufacturing orders with real-time capacity planning, components availability, and cost control. Get just-in-time replenishment propositions and choose how to fulfill parts: make or buy, sub-contract, deliver from another warehouse, etc.</p></div>
+    </div>
   </div>
 </section>
 
 <!-- S4: Planning -->
 <section class="xc-section">
-  <div class="container center">
-    <h2 class="section-h">Planning that puts you ahead of schedule</h2>
-    <p class="section-sub center">Schedule manufacturing orders and plan resources with finite capacity planning. Fine tune easily with the Gantt chart.</p>
-    <div class="xc-shot"><img class="xc-img" src="img/odoo-pages/manufacturing/schedule.webp" alt="Manufacturing schedule Gantt"/></div>
+  <div class="container">
+    <div class="od-row flip">
+      <div class="od-media"><img class="main" src="img/odoo-pages/manufacturing/schedule.webp" alt="Manufacturing schedule Gantt"/></div>
+      <div class="od-copy"><h2>Planning that puts you ahead of schedule</h2><p>Schedule manufacturing orders and plan resources with finite capacity planning. Fine tune easily with the Gantt chart.</p></div>
+    </div>
   </div>
 </section>
 
 <!-- S5: Record production -->
 <section class="xc-section alt">
-  <div class="container center">
-    <h2 class="section-h">Record production and components</h2>
-    <p class="section-sub center"><b>Mobile barcode app.</b> Use to process orders, accelerate operations, and reduce input errors. Works right out of the box, blazing fast, and with no latency.</p>
-    <div class="xc-shot"><img class="xc-img" src="img/odoo-pages/manufacturing/barcode.webp" alt="Mobile barcode app"/></div>
+  <div class="container">
+    <div class="od-row">
+      <div class="od-media"><img class="main" src="img/odoo-pages/manufacturing/barcode.webp" alt="Mobile barcode app"/></div>
+      <div class="od-copy"><h2>Record production and components</h2><p><b>Mobile barcode app.</b> Use to process orders, accelerate operations, and reduce input errors. Works right out of the box, blazing fast, and with no latency.</p></div>
+    </div>
   </div>
 </section>
 
@@ -97,10 +99,11 @@
 
 <!-- S7: Six-Sigma -->
 <section class="xc-section alt">
-  <div class="container center">
-    <h2 class="section-h">Get ready for Six-Sigma level 6!</h2>
-    <p class="section-sub center">Get statistical analysis of quality issues, and set control points instantly available in the shop floor with instructions. Workers can send feedback through the app as they notice waste in the manufacturing process. When ideas and information flow that smoothly, quality is raised to another level...</p>
-    <div class="xc-shot"><img class="xc-img" src="img/odoo-pages/manufacturing/sigma_6.webp" alt="Quality analysis"/></div>
+  <div class="container">
+    <div class="od-row flip">
+      <div class="od-media"><img class="main" src="img/odoo-pages/manufacturing/sigma_6.webp" alt="Quality analysis"/></div>
+      <div class="od-copy"><h2>Get ready for Six-Sigma level 6!</h2><p>Get statistical analysis of quality issues, and set control points instantly available in the shop floor with instructions. Workers can send feedback through the app as they notice waste in the manufacturing process. When ideas and information flow that smoothly, quality is raised to another level...</p></div>
+    </div>
   </div>
 </section>
 
@@ -115,15 +118,15 @@
 <!-- S9: All the features done right -->
 <section class="xc-section alt">
   <div class="container center">
-    <h2 class="section-h">All the features done right.</h2>
-    <div class="feat-grid">
-      <div><h4>Master production schedule</h4><p>The MPS is perfect for your S&amp;OP meeting, to align objectives of sales people and the manufacturing department.</p><img class="xc-img" src="img/odoo-pages/manufacturing/features_01.webp" alt="Master production schedule" style="margin-top:14px"/></div>
-      <div><h4>Leverage by-products</h4><p>Produce residual products by adding by-products to bills of materials.</p></div>
-      <div><h4>Powerful yet simple</h4><p>Although Odoo has all the features you need to deploy a modern manufacturing line, it remains very simple to use, and does not require advanced trainings for workers.</p></div>
-      <div><h4>Up/down stream traceability</h4><p>Track components, or manufacture in batches (lots) or serial numbers. Get a clear traceability of all operations in just a click.</p></div>
-      <div><h4>IoT integrations</h4><p>Connect barcode printers, automate quality measures, or setup your machine from the shop floor app, using the IoT box.</p></div>
+    <h2 class="section-h od-h-left">All the features done right.</h2>
+    <div class="od-cards">
+      <div class="od-card"><svg class="star" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3l4.9 10.4 11.1 1.4-8.2 7.8 2.1 11L20 28.3 10.1 33.6l2.1-11L4 14.8l11.1-1.4z" fill="#F5C518" stroke="#2A2A3A" stroke-width="2" stroke-linejoin="round"/></svg><h3>Master production schedule</h3><p>The MPS is perfect for your S&amp;OP meeting, to align objectives of sales people and the manufacturing department.</p><img class="xc-img" src="img/odoo-pages/manufacturing/features_01.webp" alt="Master production schedule" style="margin-top:14px"/></div>
+      <div class="od-card"><svg class="star" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3l4.9 10.4 11.1 1.4-8.2 7.8 2.1 11L20 28.3 10.1 33.6l2.1-11L4 14.8l11.1-1.4z" fill="#F5C518" stroke="#2A2A3A" stroke-width="2" stroke-linejoin="round"/></svg><h3>Leverage by-products</h3><p>Produce residual products by adding by-products to bills of materials.</p></div>
+      <div class="od-card"><svg class="star" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3l4.9 10.4 11.1 1.4-8.2 7.8 2.1 11L20 28.3 10.1 33.6l2.1-11L4 14.8l11.1-1.4z" fill="#F5C518" stroke="#2A2A3A" stroke-width="2" stroke-linejoin="round"/></svg><h3>Powerful yet simple</h3><p>Although Odoo has all the features you need to deploy a modern manufacturing line, it remains very simple to use, and does not require advanced trainings for workers.</p></div>
+      <div class="od-card"><svg class="star" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3l4.9 10.4 11.1 1.4-8.2 7.8 2.1 11L20 28.3 10.1 33.6l2.1-11L4 14.8l11.1-1.4z" fill="#F5C518" stroke="#2A2A3A" stroke-width="2" stroke-linejoin="round"/></svg><h3>Up/down stream traceability</h3><p>Track components, or manufacture in batches (lots) or serial numbers. Get a clear traceability of all operations in just a click.</p></div>
+      <div class="od-card"><svg class="star" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3l4.9 10.4 11.1 1.4-8.2 7.8 2.1 11L20 28.3 10.1 33.6l2.1-11L4 14.8l11.1-1.4z" fill="#F5C518" stroke="#2A2A3A" stroke-width="2" stroke-linejoin="round"/></svg><h3>IoT integrations</h3><p>Connect barcode printers, automate quality measures, or setup your machine from the shop floor app, using the IoT box.</p></div>
     </div>
-  </div>
+    </div>
 </section>
 
 <!-- S10: One need, one app -->
@@ -141,6 +144,6 @@
   </div>
 </section>
 
-<script src="odoo-replica.js?v=7"></script>
+<script src="odoo-replica.js?v=8"></script>
 </body>
 </html>
