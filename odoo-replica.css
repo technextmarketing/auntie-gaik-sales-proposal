@@ -378,6 +378,27 @@ section{padding:108px 0}
 /* coral spark decoration (odoo hero flourish) */
 .pos-spark{position:absolute;left:-58px;top:-36px;width:58px;height:58px}
 @media(max-width:800px){.pos-spark{display:none}}
+
+/* ===== odoo-style soft grey blobs behind imagery ===== */
+.xc-shot,.od-media,.pos-showcase,.tb-showcase,.annot-wrap,.stack-shots,.duo-arrow,.xc-overlap,.paperless,.hero-side,.img-collage,.inv-showcase,.plan-showcase{position:relative}
+.xc-shot::before,.od-media::before,.pos-showcase::before,.tb-showcase::before,.annot-wrap::before,.stack-shots::before,.duo-arrow::before,.xc-overlap::before,.paperless::before,.hero-side::before,.img-collage::before,.inv-showcase::before,.plan-showcase::before{content:"";position:absolute;left:50%;top:52%;transform:translate(-50%,-50%) rotate(-5deg);width:106%;height:98%;background:rgba(113,102,125,.08);border-radius:48% 52% 56% 44%/56% 45% 55% 44%;z-index:-1;pointer-events:none}
+/* vary the blob shape a little between blocks so it reads hand-placed */
+.od-media::before{width:112%;height:108%;border-radius:50%;transform:translate(-50%,-50%) rotate(8deg)}
+.hero-side::before{width:118%;height:120%;top:58%;border-radius:50% 50% 46% 54%/60% 56% 44% 40%}
+.annot-wrap::before{width:78%;height:112%;border-radius:50%}
+.stack-shots::before{width:112%;height:104%;transform:translate(-50%,-50%) rotate(4deg)}
+
+/* ===== bigger, more colorful type (odoo scale) ===== */
+.section-h{font-size:clamp(2.7rem,5.4vw,4.1rem)}
+.od-copy h2{font-size:clamp(2.5rem,4.6vw,3.5rem)}
+.section-sub{font-size:1.13rem}
+.w-blue{color:#4a90e2}
+.w-coral{color:#E8695D}
+.w-teal{color:#3bbba4}
+.od-hl-teal{background:rgba(78,199,176,.42);box-decoration-break:clone;-webkit-box-decoration-break:clone;padding:.02em .18em;border-radius:4px}
+.od-hl-coral{background:rgba(232,105,93,.42);box-decoration-break:clone;-webkit-box-decoration-break:clone;padding:.02em .18em;border-radius:4px}
+.od-ellipse-blue{position:relative;display:inline-block;padding:0 .08em}
+.od-ellipse-blue::after{content:"";position:absolute;left:-6%;top:-12%;width:112%;height:128%;border:3.5px solid #4a90e2;border-radius:50%;transform:rotate(-4deg);pointer-events:none}
 .chip-row{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:38px}
 .chip{background:#fff;border:1px solid var(--line);border-radius:999px;padding:12px 26px;font-weight:700;color:var(--ink);font-size:15px;box-shadow:0 10px 24px -16px rgba(31,20,30,.25)}
 .label-callouts{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:34px}
