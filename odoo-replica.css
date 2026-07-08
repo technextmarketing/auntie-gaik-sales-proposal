@@ -411,6 +411,9 @@ section{padding:108px 0}
 
 /* ===== click-to-preview lightbox ===== */
 .zoomable{cursor:zoom-in}
+.no-fx{box-shadow:none !important}
+.od-row.wide-media{grid-template-columns:1fr 1.5fr}
+@media(max-width:900px){.od-row.wide-media{grid-template-columns:1fr}}
 .lb-modal{position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;padding:4vw;background:rgba(20,14,20,.82);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease}
 .lb-modal.open{opacity:1;visibility:visible}
 .lb-inner{max-width:94vw;max-height:90vh;transform:scale(.94);transition:transform .38s cubic-bezier(.2,.85,.25,1);display:flex}

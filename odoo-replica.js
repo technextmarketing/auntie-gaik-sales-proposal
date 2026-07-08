@@ -178,6 +178,7 @@ if (videoModal) {
     '.intro-frame img', '.xc-overlap img'
   ].join(', ');
   document.querySelectorAll(imgSel).forEach((im) => {
+    if (im.classList.contains('no-fx')) return;
     im.classList.add('zoomable');
     im.addEventListener('click', () => openImg(im.currentSrc || im.src, im.alt));
   });
