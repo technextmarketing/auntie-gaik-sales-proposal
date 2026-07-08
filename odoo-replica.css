@@ -378,6 +378,24 @@ section{padding:108px 0}
 .od-card .star{position:absolute;top:22px;right:24px;width:32px;height:32px}
 .od-card img{width:100%;border-radius:10px;margin-top:18px}
 .od-h-left{text-align:left;margin-left:0;max-width:12em}
+/* odoo hand-drawn heading strokes */
+.od-ellipse{position:relative;display:inline-block;padding:0 .08em}
+.od-ellipse::after{content:"";position:absolute;left:-6%;top:-12%;width:112%;height:128%;border:3.5px solid #4ec7b0;border-radius:50%;transform:rotate(-4deg);pointer-events:none}
+.od-u-blue{background:linear-gradient(#4a90e2,#4a90e2) 0 90%/100% 5px no-repeat;padding-bottom:3px}
+.od-u-teal{background:linear-gradient(#4ec7b0,#4ec7b0) 0 90%/100% 5px no-repeat;padding-bottom:3px}
+.od-u-coral{background:linear-gradient(#e8695d,#e8695d) 0 90%/100% 5px no-repeat;padding-bottom:3px}
+.od-u-yellow{background:linear-gradient(#f5c518,#f5c518) 0 88%/100% 7px no-repeat;padding-bottom:3px}
+.od-hl-blue{background:rgba(74,144,226,.42);box-decoration-break:clone;-webkit-box-decoration-break:clone;padding:.02em .18em;border-radius:4px}
+.od-hl-yellow{background:rgba(245,197,24,.55);box-decoration-break:clone;-webkit-box-decoration-break:clone;padding:.02em .18em;border-radius:4px}
+/* icon + hand-drawn arrow label columns (real-time data / replenishment strategies) */
+.od-labels{display:flex;flex-wrap:wrap;justify-content:center;gap:34px 56px;margin:44px auto 0}
+.od-lab{display:flex;flex-direction:column;align-items:center;gap:10px;width:150px}
+.od-lab .ic{width:56px;height:56px;border-radius:15px;display:flex;align-items:center;justify-content:center;color:#fff}
+.od-lab .ic svg{width:30px;height:30px}
+.od-lab .name{font-family:'Caveat',cursive;font-size:24px;font-weight:600;color:var(--ink);line-height:1.1;text-align:center}
+.od-lab .darr{width:26px;height:36px;color:var(--purple-dark)}
+.see-all{display:inline-flex;align-items:center;gap:10px;margin-top:44px;font-family:'Caveat',cursive;font-size:1.7rem;font-weight:700;color:var(--purple)}
+.see-all svg{width:40px;height:20px}
 
 .benefit-band{background:var(--purple);color:#fff}
 .benefit-band .eyebrow{color:#fff;opacity:.75}
