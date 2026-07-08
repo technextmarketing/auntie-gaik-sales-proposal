@@ -103,7 +103,11 @@ if (videoModal) {
     '.pos-orders h2', '.tb-feature h2', '.plan-head', '.inv-head', '.quotation-head',
     '.app-tile', '.pos-card', '.check-item', '.intro-frame', '.why-card', '.closing-text', '.closing-sign',
     '.pos-showcase', '.tb-showcase', '.inv-showcase', '.plan-showcase', '.quotation-showcase',
-    '.final-cta h2', '.final-cta p', '.final-cta .hero-ctas'
+    '.final-cta h2', '.final-cta p', '.final-cta .hero-ctas',
+    '.od-copy', '.od-media', '.xc-shot', '.img-duo', '.img-collage', '.rfq-collage',
+    '.stack-shots', '.duo-arrow', '.xc-overlap', '.paperless', '.annot-wrap', '.pick-item',
+    '.label-callouts', '.chip-row', '.star-grid', '.apps-row', '.od-cards', '.bank-media', '.bank-list',
+    '.plus-sep', '.script-line'
   ].join(', ');
   // Exclude the Table Booking section from reveal animations
   const els = Array.from(document.querySelectorAll(selector)).filter((el) => !el.closest('.tb-feature'));
@@ -127,5 +131,59 @@ if (videoModal) {
   // Safety net: if anything is still hidden after load, reveal it
   window.addEventListener('load', () => {
     setTimeout(() => els.forEach((el) => el.classList.add('in-view')), 2500);
+  });
+})();
+
+// Click any screenshot (or the accounting demo video) to preview it enlarged
+(function () {
+  const box = document.createElement('div');
+  box.className = 'lb-modal';
+  box.setAttribute('aria-hidden', 'true');
+  box.innerHTML = '<button class="lb-close" aria-label="Close preview">&times;</button><div class="lb-inner"></div>';
+  document.body.appendChild(box);
+  const inner = box.querySelector('.lb-inner');
+
+  const close = () => {
+    box.classList.remove('open');
+    box.setAttribute('aria-hidden', 'true');
+    inner.innerHTML = '';
+    document.body.style.overflow = '';
+  };
+  const openImg = (src, alt) => {
+    inner.innerHTML = '';
+    const im = document.createElement('img');
+    im.src = src; im.alt = alt || '';
+    inner.appendChild(im);
+    box.classList.add('open'); box.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+  const openVid = (src) => {
+    inner.innerHTML = '';
+    const v = document.createElement('video');
+    v.src = src; v.controls = true; v.autoplay = true; v.playsInline = true;
+    inner.appendChild(v);
+    box.classList.add('open'); box.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    v.play().catch(() => {});
+  };
+
+  box.querySelector('.lb-close').addEventListener('click', close);
+  box.addEventListener('click', (e) => { if (e.target === box) close(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && box.classList.contains('open')) close(); });
+
+  const imgSel = [
+    '.xc-img', '.od-media img', '.pos-showcase img', '.tb-showcase img',
+    '.rfq-collage img', '.stack-shots img', '.duo-arrow img', '.annot-img',
+    '.paperless img', '.pick-card img', '.od-card img', '.hero-side .side',
+    '.intro-frame img', '.xc-overlap img'
+  ].join(', ');
+  document.querySelectorAll(imgSel).forEach((im) => {
+    im.classList.add('zoomable');
+    im.addEventListener('click', () => openImg(im.currentSrc || im.src, im.alt));
+  });
+  // videos flagged for the lightbox (accounting demo)
+  document.querySelectorAll('.lb-video').forEach((v) => {
+    v.style.cursor = 'zoom-in';
+    v.addEventListener('click', () => openVid(v.getAttribute('src')));
   });
 })();

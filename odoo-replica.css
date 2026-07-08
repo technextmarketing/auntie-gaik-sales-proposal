@@ -410,6 +410,37 @@ section{padding:108px 0}
 /* "+" separator and hand-written follow-up line (odoo inventory hero) */
 .plus-sep{font-size:64px;line-height:1;color:#c9c6d0;text-align:center;margin:60px 0 10px;font-weight:300}
 .script-line{font-family:'Caveat',cursive;font-size:clamp(1.9rem,3.5vw,2.7rem);font-weight:700;color:var(--ink);text-align:center}
+
+/* ===== soft shadow on every screenshot/card ===== */
+.xc-img,.od-media .main,.od-media img,.annot-img,.pick-card,.rfq-collage img,.stack-shots img,.duo-arrow img,.hero-side .xc-img,.hero-side .side,.xc-overlap .main,.xc-overlap .over,.paperless img,.pos-showcase img,.tb-showcase img,.od-card img,.bank-media video,.bank-media img{box-shadow:0 20px 46px -26px rgba(31,20,30,.34)}
+
+/* ===== click-to-preview lightbox ===== */
+.zoomable{cursor:zoom-in;transition:transform .35s cubic-bezier(.2,.8,.25,1),box-shadow .35s ease}
+.zoomable:hover{transform:translateY(-4px) scale(1.012);box-shadow:0 32px 66px -28px rgba(31,20,30,.42)}
+.lb-modal{position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;padding:4vw;background:rgba(20,14,20,.82);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease}
+.lb-modal.open{opacity:1;visibility:visible}
+.lb-inner{max-width:94vw;max-height:90vh;transform:scale(.94);transition:transform .38s cubic-bezier(.2,.85,.25,1);display:flex}
+.lb-modal.open .lb-inner{transform:scale(1)}
+.lb-inner img,.lb-inner video{display:block;max-width:94vw;max-height:90vh;width:auto;height:auto;border-radius:12px;box-shadow:0 40px 90px -30px rgba(0,0,0,.7);background:#fff}
+.lb-close{position:absolute;top:20px;right:26px;width:46px;height:46px;border-radius:50%;border:none;background:rgba(255,255,255,.16);color:#fff;font-size:26px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .2s}
+.lb-close:hover{background:rgba(255,255,255,.32);transform:scale(1.08)}
+
+/* ===== bank reconciliation section (odoo "Smart bank reconciliation") ===== */
+.bank-list{list-style:none;max-width:520px}
+.bank-list li{position:relative;padding-left:34px;margin-bottom:26px}
+.bank-list li::before{content:"";position:absolute;left:0;top:4px;width:18px;height:18px;border-radius:50%;border:3px solid #3bbba4;background:#eafaf6}
+.bank-list h4{font-family:'Inter',sans-serif;font-size:1.12rem;font-weight:800;color:var(--ink);margin-bottom:6px}
+.bank-list p{font-size:1rem;margin:0}
+.bank-media{position:relative}
+.bank-media video,.bank-media img{width:100%;border-radius:12px;display:block}
+.bank-badge{position:absolute;right:-8px;top:-46px;font-family:'Caveat',cursive;font-weight:700;font-size:1.5rem;color:var(--ink);display:flex;align-items:center;gap:8px}
+.bank-badge svg{width:40px;height:34px}
+@media(max-width:800px){.bank-badge{display:none}}
+.bank-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:78px;height:78px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;box-shadow:0 16px 40px -14px rgba(0,0,0,.4);pointer-events:none}
+.bank-play svg{width:30px;height:30px;margin-left:5px;color:#E8695D}
+
+/* extra reveal states for module media */
+.reveal.zoomable.in-view{transition:opacity .7s cubic-bezier(.2,.75,.25,1),translate .7s cubic-bezier(.2,.75,.25,1),transform .35s ease,box-shadow .35s ease}
 .chip-row{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:38px}
 .chip{background:#fff;border:1px solid var(--line);border-radius:999px;padding:12px 26px;font-weight:700;color:var(--ink);font-size:15px;box-shadow:0 10px 24px -16px rgba(31,20,30,.25)}
 .label-callouts{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:34px}
