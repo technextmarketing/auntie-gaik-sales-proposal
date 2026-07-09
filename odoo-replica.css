@@ -56,7 +56,8 @@ section{padding:108px 0}
 .nav-links a:hover{color:var(--purple)}
 .nav-links a.active{color:var(--purple);font-weight:800}
 .nav-cta{padding:10px 20px;font-size:14px;white-space:nowrap;flex-shrink:0}
-@media(max-width:860px){.nav-inner{flex-wrap:wrap;row-gap:10px}.brand span{display:none}.nav-links{width:100%;flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;gap:16px;padding-bottom:2px;-webkit-overflow-scrolling:touch}}
+@media(max-width:860px){.nav-inner{flex-wrap:wrap;row-gap:8px}.brand span{display:none}.nav-links{width:100%;flex-wrap:wrap;overflow:visible;justify-content:center;gap:8px 15px}.nav-links a{font-size:13px}}
+@media(max-width:420px){.nav-links{gap:7px 11px}.nav-links a{font-size:12px}}
 
 /* ============ Hero ============ */
 .hero{padding:158px 0 0;text-align:center;background:linear-gradient(180deg,#FFFDF6 0%,#fff 62%)}
@@ -587,3 +588,41 @@ footer{background:var(--ink);color:rgba(255,255,255,.7);padding:80px 0 0}
 .restaurant-grid img{width:100%;height:280px;object-fit:cover;display:block}
 @media(max-width:900px){.restaurant-grid{grid-template-columns:1fr 1fr}.restaurant-grid img{height:200px}}
 @media(max-width:560px){.restaurant-grid img{height:150px}}
+
+/* ============ Mobile fixes — stop horizontal scroll, stack all floating overlays ============ */
+html,body{overflow-x:hidden}
+.nav-links{min-width:0}                 /* let the scrollable link row shrink instead of widening the page */
+.od-row .od-media,.od-row .od-copy{min-width:0}
+
+@media(max-width:700px){
+  section{padding:62px 0}
+  .container{padding:0 18px}
+  .section-h{font-size:clamp(2rem,8.5vw,2.7rem);max-width:100%}
+  .od-copy h2{font-size:clamp(1.9rem,7.8vw,2.5rem)}
+  .section-sub,.od-copy p{font-size:1.02rem}
+
+  /* circle overlay images -> stack under the main image, no piling/spill */
+  .od-media.circle::before{display:none}
+  .od-media .over{position:static;width:100%;margin:14px 0 0;box-shadow:0 16px 36px -24px rgba(31,20,30,.4)}
+
+  /* paperless shop-floor collage -> simple vertical stack */
+  .paperless{display:flex;flex-direction:column;gap:14px}
+  .paperless .pc-main,.paperless .pc-left,.paperless .pc-right{position:static;width:100%;margin:0}
+
+  /* purchase RFQ collage -> single column, no vertical offset */
+  .rfq-collage{grid-template-columns:1fr;gap:22px}
+  .rfq-col.right{padding-top:0}
+  .rfq-col.left .loc{width:100%}
+  .rfq-collage::before{display:none}
+
+  /* stacked purchase shots full width */
+  .stack-shots .shot-1,.stack-shots .shot-2{width:100%}
+
+  /* bank badge + decorative blobs off on small screens */
+  .bank-badge{display:none}
+  .xc-shot::before,.od-media::before,.paperless::before,.stack-shots::before,.rfq-collage::before,.annot-wrap::before,.hero-side::before,.duo-arrow::before,.xc-overlap::before,.pos-showcase::before,.tb-showcase::before,.inv-showcase::before,.plan-showcase::before,.img-collage::before{display:none}
+
+  /* keep the hero one-liner from forcing width */
+  .hero h1{white-space:normal;font-size:clamp(1.6rem,7vw,2.2rem)}
+  .plus-sep{margin:40px 0 6px}
+}
