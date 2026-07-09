@@ -134,31 +134,57 @@ if (videoModal) {
   });
 })();
 
-// Click any screenshot (or the accounting demo video) to preview it enlarged
+// Click any screenshot (or the accounting demo video) to preview it enlarged,
+// with zoom in / zoom out (buttons, mouse-wheel, pinch) and drag-to-pan.
 (function () {
   const box = document.createElement('div');
   box.className = 'lb-modal';
   box.setAttribute('aria-hidden', 'true');
-  box.innerHTML = '<button class="lb-close" aria-label="Close preview">&times;</button><div class="lb-inner"></div>';
+  box.innerHTML =
+    '<button class="lb-close" aria-label="Close preview">&times;</button>' +
+    '<div class="lb-inner"></div>' +
+    '<div class="lb-zoom"><button class="lb-out" aria-label="Zoom out">&minus;</button>' +
+    '<button class="lb-reset" aria-label="Reset zoom">&#8635;</button>' +
+    '<button class="lb-in" aria-label="Zoom in">+</button></div>';
   document.body.appendChild(box);
   const inner = box.querySelector('.lb-inner');
+
+  let media = null;      // the <img> currently shown (null for video)
+  let scale = 1, tx = 0, ty = 0;
+  const MIN = 1, MAX = 6;
+
+  const apply = () => {
+    if (!media) return;
+    media.style.transform = 'translate(' + tx + 'px,' + ty + 'px) scale(' + scale + ')';
+    inner.classList.toggle('zoomed', scale > 1.01);
+  };
+  const setScale = (s) => {
+    scale = Math.min(MAX, Math.max(MIN, s));
+    if (scale === 1) { tx = 0; ty = 0; }
+    apply();
+  };
+  const resetZoom = () => { scale = 1; tx = 0; ty = 0; apply(); };
 
   const close = () => {
     box.classList.remove('open');
     box.setAttribute('aria-hidden', 'true');
     inner.innerHTML = '';
+    media = null; resetZoom();
     document.body.style.overflow = '';
   };
   const openImg = (src, alt) => {
     inner.innerHTML = '';
+    scale = 1; tx = 0; ty = 0;
     const im = document.createElement('img');
-    im.src = src; im.alt = alt || '';
+    im.src = src; im.alt = alt || ''; im.draggable = false;
     inner.appendChild(im);
+    media = im;
     box.classList.add('open'); box.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
   };
   const openVid = (src) => {
     inner.innerHTML = '';
+    media = null; scale = 1; tx = 0; ty = 0;
     const v = document.createElement('video');
     v.src = src; v.controls = true; v.autoplay = true; v.playsInline = true;
     inner.appendChild(v);
@@ -168,9 +194,55 @@ if (videoModal) {
   };
 
   box.querySelector('.lb-close').addEventListener('click', close);
-  box.addEventListener('click', (e) => { if (e.target === box) close(); });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && box.classList.contains('open')) close(); });
+  box.querySelector('.lb-in').addEventListener('click', (e) => { e.stopPropagation(); setScale(scale * 1.4); });
+  box.querySelector('.lb-out').addEventListener('click', (e) => { e.stopPropagation(); setScale(scale / 1.4); });
+  box.querySelector('.lb-reset').addEventListener('click', (e) => { e.stopPropagation(); resetZoom(); });
+  box.addEventListener('click', (e) => { if (e.target === box || e.target === inner) close(); });
+  document.addEventListener('keydown', (e) => {
+    if (!box.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === '+' || e.key === '=') setScale(scale * 1.4);
+    else if (e.key === '-') setScale(scale / 1.4);
+    else if (e.key === '0') resetZoom();
+  });
 
+  // mouse-wheel zoom
+  box.addEventListener('wheel', (e) => {
+    if (!media || !box.classList.contains('open')) return;
+    e.preventDefault();
+    setScale(scale * (e.deltaY < 0 ? 1.12 : 1 / 1.12));
+  }, { passive: false });
+
+  // double-click / double-tap toggle
+  inner.addEventListener('dblclick', (e) => { if (media) { e.preventDefault(); setScale(scale > 1.01 ? 1 : 2.5); } });
+
+  // pointer drag-to-pan + two-finger pinch zoom
+  const pointers = new Map();
+  let panStart = null, pinchDist = 0, pinchScale = 1;
+  const dist = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
+  inner.addEventListener('pointerdown', (e) => {
+    if (!media) return;
+    pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (pointers.size === 1 && scale > 1.01) panStart = { x: e.clientX - tx, y: e.clientY - ty };
+    else if (pointers.size === 2) {
+      const p = [...pointers.values()]; pinchDist = dist(p[0], p[1]); pinchScale = scale; panStart = null;
+    }
+    try { inner.setPointerCapture(e.pointerId); } catch (_) {}
+  });
+  inner.addEventListener('pointermove', (e) => {
+    if (!media || !pointers.has(e.pointerId)) return;
+    pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    const p = [...pointers.values()];
+    if (p.length === 2 && pinchDist) { setScale(pinchScale * (dist(p[0], p[1]) / pinchDist)); }
+    else if (p.length === 1 && scale > 1.01 && panStart) {
+      tx = e.clientX - panStart.x; ty = e.clientY - panStart.y; apply();
+    }
+  });
+  const endPointer = (e) => { pointers.delete(e.pointerId); if (pointers.size < 2) pinchDist = 0; if (pointers.size === 0) panStart = null; };
+  inner.addEventListener('pointerup', endPointer);
+  inner.addEventListener('pointercancel', endPointer);
+
+  // wire every screenshot to the preview (all images, cutouts included)
   const imgSel = [
     '.xc-img', '.od-media img', '.pos-showcase img', '.tb-showcase img',
     '.rfq-collage img', '.stack-shots img', '.duo-arrow img', '.annot-img',
@@ -178,11 +250,9 @@ if (videoModal) {
     '.intro-frame img', '.xc-overlap img'
   ].join(', ');
   document.querySelectorAll(imgSel).forEach((im) => {
-    if (im.classList.contains('no-fx')) return;
     im.classList.add('zoomable');
     im.addEventListener('click', () => openImg(im.currentSrc || im.src, im.alt));
   });
-  // videos flagged for the lightbox (accounting demo)
   document.querySelectorAll('.lb-video').forEach((v) => {
     v.style.cursor = 'zoom-in';
     v.addEventListener('click', () => openVid(v.getAttribute('src')));
